@@ -1,18 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <TextView
         android:id="@+id/UserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:hint="User Name" />
 
+    <TextView
+        android:id="@+id/VaccineProvider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_below="@id/UserName"
+        android:hint="Vaccine Provider" />
 
+    <!--Add Titles for columns here -->
 
+    <!--Dose 1-->
+    <TextView
+        android:id="@+id/tvDose1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:layout_below="@id/VaccineProvider"
+        android:text="Dose 1" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/Dose1Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:hint="Dose 1 Date"
+        android:layout_below="@id/VaccineProvider"
+        android:layout_toRightOf="@+id/tvDose1" />
+
+    <TextView
+        android:id="@+id/Dose1Num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:hint="Dose 1 Num"
+        android:layout_below="@id/VaccineProvider"
+        android:layout_toRightOf="@id/Dose1Date"/>
+
+    <!--Dose 2-->
+    <TextView
+        android:id="@+id/tvDose2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:text="Dose 2"
+        android:layout_below="@id/tvDose1"/>
+
+    <TextView
+        android:id="@+id/Dose2Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:hint="Dose 2 Date"
+        android:layout_below="@id/Dose1Date"
+        android:layout_toRightOf="@id/tvDose2"/>
+
+    <TextView
+        android:id="@+id/Dose2Num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:hint="Dose 2 Num"
+        android:layout_below="@id/Dose1Date"
+        android:layout_toRightOf="@id/Dose2Date"/>
+
+    <!--Booster-->
+    <TextView
+        android:id="@+id/tvBooster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:text="Booster"
+        android:layout_below="@id/tvDose2"/>
+
+    <TextView
+        android:id="@+id/BoosterDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:hint="Booster Date"
+        android:layout_below="@id/Dose2Date"
+        android:layout_toRightOf="@id/tvBooster"/>
+
+    <TextView
+        android:id="@+id/BoosterNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:hint="Booster Num"
+        android:layout_below="@id/Dose2Date"
+        android:layout_toRightOf="@id/BoosterDate"/>
+
+</RelativeLayout>

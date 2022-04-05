@@ -22,6 +22,14 @@
         android:hint="Vaccine Provider" />
 
     <!--Add Titles for columns here -->
+    <TextView
+        android:id="@+id/Titles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_below="@id/VaccineProvider"
+        android:text="Dose           Date      Lot Number "
+        android:textStyle="bold"/>
 
     <!--Dose 1-->
     <TextView
@@ -30,7 +38,7 @@
         android:layout_height="wrap_content"
         android:textSize="16dp"
         android:padding="5dp"
-        android:layout_below="@id/VaccineProvider"
+        android:layout_below="@id/Titles"
         android:text="Dose 1" />
 
     <TextView
@@ -40,7 +48,7 @@
         android:textSize="16dp"
         android:padding="5dp"
         android:hint="Dose 1 Date"
-        android:layout_below="@id/VaccineProvider"
+        android:layout_below="@id/Titles"
         android:layout_toRightOf="@+id/tvDose1" />
 
     <TextView
@@ -50,7 +58,7 @@
         android:textSize="16dp"
         android:padding="5dp"
         android:hint="Dose 1 Num"
-        android:layout_below="@id/VaccineProvider"
+        android:layout_below="@id/Titles"
         android:layout_toRightOf="@id/Dose1Date"/>
 
     <!--Dose 2-->
@@ -112,5 +120,7 @@
         android:hint="Booster Num"
         android:layout_below="@id/Dose2Date"
         android:layout_toRightOf="@id/BoosterDate"/>
+
+    
 
 </RelativeLayout>

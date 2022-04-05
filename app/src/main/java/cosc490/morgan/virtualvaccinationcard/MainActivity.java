@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView username = (TextView) findViewById(R.id.etUsername);
-        TextView password = (TextView) findViewById(R.id.etPassword);
+        EditText username = (EditText) findViewById(R.id.etUsername);
+        EditText password = (EditText) findViewById(R.id.etPassword);
 
         MaterialButton btnLogin = (MaterialButton) findViewById(R.id.btnLogin);
         MaterialButton btnSignUp= (MaterialButton) findViewById(R.id.btnSignUp);
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
+                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){ //replace with query
                     //show toast for successful login
                     Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     //open admin page
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //open the admin home page
     public void openAdminHome(){
         //create new intent
         Intent intent = new Intent(this, AdminHomeActivity.class);
@@ -63,11 +65,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //open the user home page
     public void openUserHome(){
         Intent intent = new Intent(this, UserHomeActivity.class);
         startActivity(intent);
     }
 
+    //open the register user homepage
     public void openRegister(){
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);

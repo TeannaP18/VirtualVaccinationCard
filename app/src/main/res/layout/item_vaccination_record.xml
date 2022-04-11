@@ -122,18 +122,18 @@
         android:layout_toRightOf="@id/BoosterDate"/>
 
 
+    <!--should be users vaccination card-->
     <Switch
         android:id="@+id/ApprovalSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="13dp"
-        android:text="Approved"
-        android:allowUndo="true"/>
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:allowUndo="true"
+        android:text="Approved" />
 
-    <!--should be users vaccination card-->
     <ImageView
         android:id="@+id/imageVaccination"
         android:layout_width="148dp"

@@ -6,17 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         EditText username = (EditText) findViewById(R.id.etUsername);
         EditText password = (EditText) findViewById(R.id.etPassword);
@@ -30,18 +29,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){ //replace with query
                     //show toast for successful login
-                    Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     //open admin page
                     openAdminHome();
                 }
                 if(username.getText().toString().equals("username") && password.getText().toString().equals("password")){ //replace with query
-                    Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     //open user page
                     openUserHome();
                 }
                 else{
                     //toast for login failure
-                    Toast.makeText(MainActivity.this, "Login FAILED!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login FAILED!", Toast.LENGTH_SHORT).show();
                     //open user homepage
                 }
 

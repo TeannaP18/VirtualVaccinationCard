@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,25 +11,26 @@
         android:id="@+id/UserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:hint="User Name" />
+        android:textSize="20sp"
+        android:hint="@string/user_name"
+        tools:ignore="RelativeOverlap" />
 
     <TextView
         android:id="@+id/VaccineProvider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_below="@id/UserName"
-        android:hint="Vaccine Provider" />
+        android:hint="@string/vaccine_provider" />
 
     <!--Add Titles for columns here -->
     <TextView
         android:id="@+id/Titles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:layout_below="@id/VaccineProvider"
-        android:text="Dose           Date      Lot Number "
+        android:text="@string/dose_date_lot_number"
         android:textStyle="bold"/>
 
     <!--Dose 1-->
@@ -36,90 +38,90 @@
         android:id="@+id/tvDose1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
         android:layout_below="@id/Titles"
-        android:text="Dose 1" />
+        android:text="@string/dose_1" />
 
     <TextView
         android:id="@+id/Dose1Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
-        android:hint="Dose 1 Date"
+        android:hint="@string/dose_1_date"
         android:layout_below="@id/Titles"
-        android:layout_toRightOf="@+id/tvDose1" />
+        android:layout_toEndOf="@+id/tvDose1" />
 
     <TextView
         android:id="@+id/Dose1Num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
-        android:hint="Dose 1 Num"
+        android:hint="@string/dose_1_num"
         android:layout_below="@id/Titles"
-        android:layout_toRightOf="@id/Dose1Date"/>
+        android:layout_toEndOf="@id/Dose1Date"/>
 
     <!--Dose 2-->
     <TextView
         android:id="@+id/tvDose2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
-        android:text="Dose 2"
+        android:text="@string/dose_2"
         android:layout_below="@id/tvDose1"/>
 
     <TextView
         android:id="@+id/Dose2Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
-        android:hint="Dose 2 Date"
+        android:hint="@string/dose_2_date"
         android:layout_below="@id/Dose1Date"
-        android:layout_toRightOf="@id/tvDose2"/>
+        android:layout_toEndOf="@id/tvDose2"/>
 
     <TextView
         android:id="@+id/Dose2Num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
-        android:hint="Dose 2 Num"
+        android:hint="@string/dose_2_num"
         android:layout_below="@id/Dose1Date"
-        android:layout_toRightOf="@id/Dose2Date"/>
+        android:layout_toEndOf="@id/Dose2Date"/>
 
     <!--Booster-->
     <TextView
         android:id="@+id/tvBooster"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
-        android:text="Booster"
+        android:text="@string/booster"
         android:layout_below="@id/tvDose2"/>
 
     <TextView
         android:id="@+id/BoosterDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
-        android:hint="Booster Date"
+        android:hint="@string/booster_date"
         android:layout_below="@id/Dose2Date"
-        android:layout_toRightOf="@id/tvBooster"/>
+        android:layout_toEndOf="@id/tvBooster"/>
 
     <TextView
         android:id="@+id/BoosterNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="5dp"
-        android:hint="Booster Num"
+        android:hint="@string/booster_num"
         android:layout_below="@id/Dose2Date"
-        android:layout_toRightOf="@id/BoosterDate"/>
+        android:layout_toEndOf="@id/BoosterDate"/>
 
 
     <!--should be users vaccination card-->
@@ -132,7 +134,9 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
         android:allowUndo="true"
-        android:text="Approved" />
+        android:text="@string/approved"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        tools:targetApi="m" />
 
     <ImageView
         android:id="@+id/imageVaccination"
@@ -142,6 +146,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="112dp"
         android:layout_marginTop="177dp"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:srcCompat="@android:drawable/ic_menu_camera"
+        android:contentDescription="@string/vaccinecard" />
 
 </RelativeLayout>

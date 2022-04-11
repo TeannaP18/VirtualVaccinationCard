@@ -15,15 +15,17 @@
         android:id="@+id/Photo"
         android:layout_width="match_parent"
         android:layout_height="102dp"
-        tools:srcCompat="@tools:sample/avatars"/>
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/photo"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tvAdminName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="20dp"
-        android:hint="Admin Name" />
+        android:textSize="20sp"
+        android:hint="@string/admin_name" />
 
 
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,15 +15,16 @@
         android:id="@+id/ProfilePhoto"
         android:layout_width="match_parent"
         android:layout_height="102dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/profilephoto" />
 
     <TextView
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="20dp"
-        android:hint="User Name" />
+        android:textSize="20sp"
+        android:hint="@string/user_name" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,8 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="COVID-19 Vaccination"
-                android:textSize="15dp" />
+                android:text="@string/covid_19_vaccination"
+                android:textSize="15sp" />
             <!--should be drop down of pfizer, moderna, j&j-->
             <EditText
                 android:id="@+id/EdtVaccineProvider"
@@ -50,8 +50,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/COVID"
                 android:layout_margin="10dp"
-                android:hint="Enter Vaccine Provider"
-                android:textSize="12dp" />
+                android:hint="@string/enter_vaccine_provider"
+                android:textSize="12sp"
+                android:autofillHints="Enter Vaccine Provider"
+                android:inputType="text" />
 
             <!--Dose1-->
             <!--should be date-->
@@ -61,8 +63,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtVaccineProvider"
                 android:layout_margin="10dp"
-                android:hint="Enter Dose 1 Date"
-                android:textSize="12dp" />
+                android:hint="@string/enter_dose_1_date"
+                android:textSize="12sp"
+                android:autofillHints="Enter Dose 1 Date"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/EdtDose1Num"
@@ -70,9 +74,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtVaccineProvider"
                 android:layout_margin="10dp"
-                android:layout_toRightOf="@+id/EdtDose1"
-                android:hint="Enter Dose 1 Lot #"
-                android:textSize="12dp" />
+                android:layout_toEndOf="@+id/EdtDose1"
+                android:hint="@string/enter_dose_1_lot"
+                android:textSize="12sp"
+                android:autofillHints="Enter Dose 1 Lot #"
+                android:inputType="text" />
 
             <!--Dose2-->
             <!--should be date-->
@@ -82,8 +88,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtDose1Num"
                 android:layout_margin="10dp"
-                android:hint="Enter Dose 2 Date"
-                android:textSize="12dp" />
+                android:hint="@string/enter_dose_2_date"
+                android:textSize="12sp"
+                android:autofillHints="Enter Dose 2 Date"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/EdtDose2Num"
@@ -91,9 +99,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtDose1Num"
                 android:layout_margin="10dp"
-                android:layout_toRightOf="@+id/EdtDose2"
-                android:hint="Enter Dose 2 Lot #"
-                android:textSize="12dp" />
+                android:layout_toEndOf="@+id/EdtDose2"
+                android:hint="@string/enter_dose_2_lot"
+                android:textSize="12sp"
+                android:autofillHints="Enter Dose 2 Lot #"
+                android:inputType="text" />
 
             <!--Booster-->
             <!--should be date-->
@@ -103,8 +113,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtDose2Num"
                 android:layout_margin="10dp"
-                android:hint="Enter Booster Date"
-                android:textSize="12dp" />
+                android:hint="@string/enter_booster_date"
+                android:textSize="12sp"
+                android:autofillHints="Enter Booster Date"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/EdtBoosterNum"
@@ -112,9 +124,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtDose2Num"
                 android:layout_margin="10dp"
-                android:layout_toRightOf="@+id/EdtBooster"
-                android:hint="Enter Booster Num"
-                android:textSize="12dp" />
+                android:layout_toEndOf="@+id/EdtBooster"
+                android:hint="@string/enter_booster_num"
+                android:textSize="12sp"
+                android:autofillHints="Enter Booster Num"
+                android:inputType="text" />
 
             <!--should be image upload-->
             <EditText
@@ -123,8 +137,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtBoosterNum"
                 android:layout_margin="10dp"
-                android:hint="Upload Vaccine Card Photo"
-                android:textSize="12dp" />
+                android:hint="@string/upload_vaccine_card_photo"
+                android:textSize="12sp"
+                android:autofillHints="Upload Vaccine Card Photo"
+                android:inputType="text" />
 
             <Button
                 android:id="@+id/btnSubmit"
@@ -134,7 +150,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="150dp"
-                android:text="Submit"></Button>
+                android:text="@string/submit_button"/>
 
         </RelativeLayout>
     </ScrollView>

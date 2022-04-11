@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">VirtualVaccinationCard</string>
+    <string name="photo">PHOTO</string>
+    <string name="admin_name">Admin Name</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login_button">LOGIN</string>
+    <string name="sign_up">Sign-Up</string>
+    <string name="profilephoto">ProfilePhoto</string>
+    <string name="user_name">User Name</string>
+    <string name="covid_19_vaccination">COVID-19 Vaccination</string>
+    <string name="enter_vaccine_provider">Enter Vaccine Provider</string>
+    <string name="enter_dose_1_date">Enter Dose 1 Date</string>
+    <string name="enter_dose_1_lot">Enter Dose 1 Lot #</string>
+    <string name="enter_dose_2_date">Enter Dose 2 Date</string>
+    <string name="enter_dose_2_lot">Enter Dose 2 Lot #</string>
+    <string name="enter_booster_date">Enter Booster Date</string>
+    <string name="enter_booster_num">Enter Booster Num</string>
+    <string name="upload_vaccine_card_photo">Upload Vaccine Card Photo</string>
+    <string name="submit_button">Submit</string>
+    <string name="user_Name">User Name</string>
+    <string name="vaccine_provider">Vaccine Provider</string>
+    <string name="dose_date_lot_number">Dose Date Lot Number</string>
+    <string name="dose_1">Dose 1</string>
+    <string name="dose_1_date">Dose 1 Date</string>
+    <string name="dose_1_num">Dose 1 Num</string>
+    <string name="dose_2">Dose 2</string>
+    <string name="dose_2_date">Dose 2 Date</string>
+    <string name="dose_2_num">Dose 2 Num</string>
+    <string name="booster">Booster</string>
+    <string name="booster_date">Booster Date</string>
+    <string name="booster_num">Booster Num</string>
+    <string name="approved">Approved</string>
+    <string name="vaccinecard">VaccineCard</string>
 </resources>

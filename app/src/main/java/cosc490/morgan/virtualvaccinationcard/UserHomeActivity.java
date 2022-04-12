@@ -1,6 +1,8 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +13,7 @@ public class UserHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        /* EditText vaccineProvider = findViewById(R.id.EdtVaccineProvider);
+        EditText vaccineProvider = findViewById(R.id.EdtVaccineProvider);
         EditText dose1 = findViewById(R.id.EdtDose1);
         EditText dose1num = findViewById(R.id.EdtDose1Num);
         EditText dose2 = findViewById(R.id.EdtDose2);
@@ -25,7 +27,7 @@ public class UserHomeActivity extends AppCompatActivity {
         //submit button
         btnSubmit.setOnClickListener(view -> {
             //add fields to database
-        });*/
+        });
     }
 
 }

@@ -3,6 +3,7 @@ package cosc490.morgan.virtualvaccinationcard;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,9 +25,32 @@ public class UserHomeActivity extends AppCompatActivity {
 
         Button btnSubmit = findViewById(R.id.btnSubmit);
 
+        DBHandler dbHandler = new DBHandler(UserHomeActivity.this);
+
+
         //submit button
         btnSubmit.setOnClickListener(view -> {
-            //add fields to database
+            String vaccine_provider = vaccineProvider.getText().toString();
+            String dose_1 = dose1.getText().toString();
+            String dose_1_num = dose1num.getText().toString();
+            String dose_2 = dose2.getText().toString();
+            String dose_2_num = dose2num.getText().toString();
+            String _booster = booster.getText().toString();
+            String booster_num = boosterNum.getText().toString();
+            String vaccine_photo = vaccinePhoto.getText().toString();
+
+            dbHandler.addNewVaccine(vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
+                    _booster, booster_num, vaccine_photo);
+
+            Toast.makeText(UserHomeActivity.this, "Vaccination Record added successfully", Toast.LENGTH_SHORT).show();
+            vaccineProvider.setText("");
+            dose1.setText("");
+            dose1num.setText("");
+            dose2.setText("");
+            dose2num.setText("");
+            booster.setText("");
+            boosterNum.setText("");
+            vaccinePhoto.setText("");
         });
     }
 

@@ -64,20 +64,32 @@ public class DBHandler extends SQLiteOpenHelper {
                 + DOSE2_NUM_COL + "TEXT, "
                 + BOOSTER_DATE_COL + "DATE, "
                 + BOOSTER_NUM_COL + "TEXT, "
-                + CARD_PHOTO_COL + "TEXT, " //should be an image
+                + CARD_PHOTO_COL + "TEXT, "
                 + APPROVAL_COL + "INTEGER, ";
         sqLiteDatabase.execSQL(query);
 
     }
 
-    public void addNewUser(String name, String password, String vacc_provider,
-                           Date dose1_date, String dose1_num, Date dose2_date, String dose2_num, Date booster_date, String booster_num,
-                           Image card_photo){
+    public void addNewUser(String user_name, String user_password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(NAME_COL, name);
-        values.put(PASSWORD_COL, password);
+        values.put(NAME_COL, user_name);
+        values.put(PASSWORD_COL, user_password);
+
+        db.insert(TABLE_NAME, null, values);
+        db.close();
+
+    }
+
+    public void addNewVaccine(String vacc_provider, String dose1_date, String dose1_num,
+                              String dose2_date, String dose2_num,
+                              String booster_date, String booster_num, String card_photo){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        //add data based on user name and password
+
         values.put(VACC_PROVIDER_COL, vacc_provider);
         values.put(DOSE1_DATE_COL, String.valueOf(dose1_date));
         values.put(DOSE1_NUM_COL, dose1_num);

@@ -51,6 +51,8 @@ public class UserHomeActivity extends AppCompatActivity {
             booster.setText("");
             boosterNum.setText("");
             vaccinePhoto.setText("");
+
+            //navigate to home page with vaccination record on it
         });
     }
 

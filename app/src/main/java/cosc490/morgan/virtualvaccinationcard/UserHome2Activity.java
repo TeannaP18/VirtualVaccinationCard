@@ -1,7 +1,6 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class UserHome2Activity extends AppCompatActivity {

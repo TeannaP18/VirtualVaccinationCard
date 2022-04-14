@@ -1,5 +1,6 @@
 package cosc490.morgan.virtualvaccinationcard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +54,9 @@ public class UserHomeActivity extends AppCompatActivity {
             vaccinePhoto.setText("");
 
             //navigate to home page with vaccination record on it
+            Intent intent = new Intent(this, UserHome2Activity.class);
+            startActivity(intent);
+
         });
     }
 

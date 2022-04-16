@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:hint="@string/admin_name" />
+        android:text="ADMIN" />
 
 
 

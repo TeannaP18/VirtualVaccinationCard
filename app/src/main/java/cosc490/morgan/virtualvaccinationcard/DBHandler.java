@@ -2,10 +2,12 @@ package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.media.Image;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -64,8 +66,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 + DOSE2_NUM_COL + "TEXT, "
                 + BOOSTER_DATE_COL + "DATE, "
                 + BOOSTER_NUM_COL + "TEXT, "
-                + CARD_PHOTO_COL + "TEXT, "
-                + APPROVAL_COL + "INTEGER, ";
+                + CARD_PHOTO_COL + "TEXT,"
+                + APPROVAL_COL + "INTEGER,";
         sqLiteDatabase.execSQL(query);
 
     }
@@ -108,5 +110,25 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(sqLiteDatabase);
 
+    }
+
+    public ArrayList<VaccinationModal> readVaccinations(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursorVaccinations = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        ArrayList<VaccinationModal> vaccinationModalArrayList = new ArrayList<>();
+        if(cursorVaccinations.moveToFirst()){
+            do{
+                vaccinationModalArrayList.add(new VaccinationModal(cursorVaccinations.getString(1),
+                        cursorVaccinations.getString(2),
+                        cursorVaccinations.getString(3),
+                        cursorVaccinations.getString(4),
+                        cursorVaccinations.getString(5),
+                        cursorVaccinations.getString(6),
+                        cursorVaccinations.getString(7),
+                        cursorVaccinations.getString(8)));
+            }while (cursorVaccinations.moveToNext());
+        }
+        cursorVaccinations.close();
+        return vaccinationModalArrayList;
     }
 }

@@ -1,5 +1,6 @@
 package cosc490.morgan.virtualvaccinationcard;
 
+//modal class for storing vaccination card data
 public class VaccinationModal {
 
     //vaccination provider

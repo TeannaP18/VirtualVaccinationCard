@@ -39,6 +39,9 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         return 0;
     }
 
-    public class ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public ViewHolder(View view) {
+            super();
+        }
     }
 }

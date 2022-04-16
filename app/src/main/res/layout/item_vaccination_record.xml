@@ -25,7 +25,7 @@
 
     <!--Add Titles for columns here -->
     <TextView
-        android:id="@+id/Titles"
+        android:id="@+id/tvTitles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -40,28 +40,28 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:padding="5dp"
-        android:layout_below="@id/Titles"
+        android:layout_below="@id/tvTitles"
         android:text="@string/dose_1" />
 
     <TextView
-        android:id="@+id/Dose1Date"
+        android:id="@+id/tvDose1Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:padding="5dp"
         android:hint="@string/dose_1_date"
-        android:layout_below="@id/Titles"
+        android:layout_below="@id/tvTitles"
         android:layout_toEndOf="@+id/tvDose1" />
 
     <TextView
-        android:id="@+id/Dose1Num"
+        android:id="@+id/tvDose1Num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:padding="5dp"
         android:hint="@string/dose_1_num"
-        android:layout_below="@id/Titles"
-        android:layout_toEndOf="@id/Dose1Date"/>
+        android:layout_below="@id/tvTitles"
+        android:layout_toEndOf="@id/tvDose1Date"/>
 
     <!--Dose 2-->
     <TextView
@@ -74,24 +74,24 @@
         android:layout_below="@id/tvDose1"/>
 
     <TextView
-        android:id="@+id/Dose2Date"
+        android:id="@+id/tvDose2Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:padding="5dp"
         android:hint="@string/dose_2_date"
-        android:layout_below="@id/Dose1Date"
+        android:layout_below="@id/tvDose1Date"
         android:layout_toEndOf="@id/tvDose2"/>
 
     <TextView
-        android:id="@+id/Dose2Num"
+        android:id="@+id/tvDose2Num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:padding="5dp"
         android:hint="@string/dose_2_num"
-        android:layout_below="@id/Dose1Date"
-        android:layout_toEndOf="@id/Dose2Date"/>
+        android:layout_below="@id/tvDose1Date"
+        android:layout_toEndOf="@id/tvDose2Date"/>
 
     <!--Booster-->
     <TextView
@@ -104,24 +104,24 @@
         android:layout_below="@id/tvDose2"/>
 
     <TextView
-        android:id="@+id/BoosterDate"
+        android:id="@+id/tvBoosterDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:padding="5dp"
         android:hint="@string/booster_date"
-        android:layout_below="@id/Dose2Date"
+        android:layout_below="@id/tvDose2Date"
         android:layout_toEndOf="@id/tvBooster"/>
 
     <TextView
-        android:id="@+id/BoosterNum"
+        android:id="@+id/tvBoosterNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:padding="5dp"
         android:hint="@string/booster_num"
-        android:layout_below="@id/Dose2Date"
-        android:layout_toEndOf="@id/BoosterDate"/>
+        android:layout_below="@id/tvDose2Date"
+        android:layout_toEndOf="@id/tvBoosterDate"/>
 
 
     <!--should be users vaccination card-->

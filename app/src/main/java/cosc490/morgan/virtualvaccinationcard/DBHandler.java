@@ -5,10 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.media.Image;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -45,7 +43,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //image of physical card
     public static final String CARD_PHOTO_COL = "card_photo";
     //approval status
-    public static final int  APPROVAL_COL = 0;
+    public static final String  APPROVAL_COL = "approval";
 
     //constructor for DB handler
     public DBHandler(Context context){
@@ -66,18 +64,27 @@ public class DBHandler extends SQLiteOpenHelper {
                 + DOSE2_NUM_COL + "TEXT, "
                 + BOOSTER_DATE_COL + "DATE, "
                 + BOOSTER_NUM_COL + "TEXT, "
-                + CARD_PHOTO_COL + "TEXT,"
-                + APPROVAL_COL + "INTEGER,";
+                + CARD_PHOTO_COL + "TEXT, "
+                + APPROVAL_COL + " INTEGER)";
         sqLiteDatabase.execSQL(query);
 
     }
 
-    public void addNewUser(String user_name, String user_password){
+    public void addNewRecord(String user_name, String user_password, String vacc_provider, String dose1_date, String dose1_num,
+                           String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put(NAME_COL, user_name);
         values.put(PASSWORD_COL, user_password);
+        values.put(VACC_PROVIDER_COL, vacc_provider);
+        values.put(DOSE1_DATE_COL, dose1_date);
+        values.put(DOSE1_NUM_COL, dose1_num);
+        values.put(DOSE2_DATE_COL, dose2_date);
+        values.put(DOSE2_NUM_COL, dose2_num);
+        values.put(BOOSTER_DATE_COL, booster_date);
+        values.put(BOOSTER_NUM_COL, booster_num);
+        values.put(CARD_PHOTO_COL, card_photo);
 
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -91,7 +98,6 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         //add data based on user name and password
-
         values.put(VACC_PROVIDER_COL, vacc_provider);
         values.put(DOSE1_DATE_COL, String.valueOf(dose1_date));
         values.put(DOSE1_NUM_COL, dose1_num);
@@ -99,6 +105,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(DOSE2_NUM_COL, dose2_num);
         values.put(BOOSTER_DATE_COL, String.valueOf(booster_date));
         values.put(BOOSTER_NUM_COL, booster_num);
+        values.put(CARD_PHOTO_COL, card_photo);
 
         db.insert(TABLE_NAME, null, values);
         db.close();

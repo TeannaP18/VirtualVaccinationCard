@@ -25,8 +25,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:hint="@string/admin_name" />
+        android:text="ADMIN" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/VaccinationsRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 

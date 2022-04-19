@@ -11,6 +11,8 @@ import com.google.android.material.button.MaterialButton;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static String usernameString, passwordString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +27,16 @@ public class LoginActivity extends AppCompatActivity {
         //admin and admin
         btnLogin.setOnClickListener(view -> {
             if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){ //replace with query
+                usernameString = username.getText().toString();
+                passwordString = password.getText().toString();
                 //show toast for successful login
                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                 //open admin page
                 openAdminHome();
             }
             if(username.getText().toString().equals("username") && password.getText().toString().equals("password")){ //replace with query
+                usernameString = username.getText().toString();
+                passwordString = password.getText().toString();
                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                 //open user page
                 openUserHome();
@@ -65,5 +71,13 @@ public class LoginActivity extends AppCompatActivity {
     public void openRegister(){
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    //methods to return the username and password to be stored in the db and to show info on admin view
+    public static String returnUserName(){
+        return usernameString;
+    }
+    public static String returnUserPassword(){
+        return passwordString;
     }
 }

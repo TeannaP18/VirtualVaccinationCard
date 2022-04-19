@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".AdminHomeActivity">
 
@@ -17,7 +17,8 @@
         android:layout_height="102dp"
         tools:srcCompat="@tools:sample/avatars"
         android:contentDescription="@string/photo"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:src="@drawable/img"/>
 
     <TextView
         android:id="@+id/tvAdminName"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:text="ADMIN" />
+        android:text="@string/admin" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/VaccinationsRV"

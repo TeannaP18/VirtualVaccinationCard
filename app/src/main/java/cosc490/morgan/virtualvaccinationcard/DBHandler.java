@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
 
+    //username and password
+
     //name of db
     private static final String DB_NAME = "usersdb";
 
@@ -21,7 +23,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //ALL DB COLUMNS BELOW//
     //id
-    private  static final String ID_COL = "id";
+    //private  static final String ID_COL = "id";
     //name
     public static final String NAME_COL = "name";
     //password
@@ -54,7 +56,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
-                + ID_COL + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+                //+ ID_COL + "INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NAME_COL+ "TEXT, "
                 + PASSWORD_COL+ "TEXT, "
                 + VACC_PROVIDER_COL+ "TEXT, "
@@ -71,12 +73,12 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public void addNewRecord(String user_name, String user_password, String vacc_provider, String dose1_date, String dose1_num,
-                           String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo){
+                             String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(NAME_COL, user_name);
-        values.put(PASSWORD_COL, user_password);
+        values.put(NAME_COL, LoginActivity.returnUserName());
+        values.put(PASSWORD_COL, LoginActivity.returnUserPassword());
         values.put(VACC_PROVIDER_COL, vacc_provider);
         values.put(DOSE1_DATE_COL, dose1_date);
         values.put(DOSE1_NUM_COL, dose1_num);

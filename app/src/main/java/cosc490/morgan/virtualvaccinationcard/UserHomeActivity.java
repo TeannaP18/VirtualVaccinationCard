@@ -28,6 +28,8 @@ public class UserHomeActivity extends AppCompatActivity {
 
         DBHandler dbHandler = new DBHandler(UserHomeActivity.this);
 
+        String userName = LoginActivity.returnUserName();
+        String userPassword = LoginActivity.returnUserPassword();
 
         //submit button
         btnSubmit.setOnClickListener(view -> {
@@ -40,7 +42,7 @@ public class UserHomeActivity extends AppCompatActivity {
             String booster_num = boosterNum.getText().toString();
             String vaccine_photo = vaccinePhoto.getText().toString();
 
-            dbHandler.addNewVaccine(vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
+            dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
                     _booster, booster_num, vaccine_photo);
 
             Toast.makeText(UserHomeActivity.this, "Vaccination Record added successfully", Toast.LENGTH_SHORT).show();

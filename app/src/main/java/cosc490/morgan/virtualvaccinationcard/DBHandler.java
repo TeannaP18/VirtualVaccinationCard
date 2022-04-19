@@ -25,7 +25,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //ALL DB COLUMNS BELOW//
     //id
-    //private  static final String ID_COL = "id";
+    private static final String ID_COL = "id";
     //name
     public static final String NAME_COL = "name";
     //password
@@ -59,16 +59,17 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 //+ ID_COL + "INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + NAME_COL+ "TEXT, "
-                + PASSWORD_COL+ "TEXT, "
-                + VACC_PROVIDER_COL+ "TEXT, "
-                + DOSE1_DATE_COL + "DATE, "
-                + DOSE1_NUM_COL + "TEXT, "
-                + DOSE2_DATE_COL + "DATE, "
-                + DOSE2_NUM_COL + "TEXT, "
-                + BOOSTER_DATE_COL + "DATE, "
-                + BOOSTER_NUM_COL + "TEXT, "
-                + CARD_PHOTO_COL + "TEXT, "
+                + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + NAME_COL+ " TEXT, "
+                + PASSWORD_COL+ " TEXT, "
+                + VACC_PROVIDER_COL+ " TEXT, "
+                + DOSE1_DATE_COL + " DATE, "
+                + DOSE1_NUM_COL + " TEXT, "
+                + DOSE2_DATE_COL + " DATE, "
+                + DOSE2_NUM_COL + " TEXT, "
+                + BOOSTER_DATE_COL + " DATE, "
+                + BOOSTER_NUM_COL + " TEXT, "
+                + CARD_PHOTO_COL + " TEXT, "
                 + APPROVAL_COL + " INTEGER)";
         sqLiteDatabase.execSQL(query);
 

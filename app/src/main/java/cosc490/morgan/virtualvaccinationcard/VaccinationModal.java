@@ -3,6 +3,8 @@ package cosc490.morgan.virtualvaccinationcard;
 //modal class for storing vaccination card data
 public class VaccinationModal {
 
+    private String userName = LoginActivity.returnUserName();
+
     //vaccination provider
     private String vacc_provider;
     //dose 1 date
@@ -22,6 +24,13 @@ public class VaccinationModal {
     private String card_photo;
 
     private int id;
+
+    public String getUserName(){
+        return userName;
+    }
+    public void setUserName(String userName){
+        this.userName = userName;
+    }
 
     public String getVacc_provider(){
         return vacc_provider;

@@ -1,6 +1,7 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +42,7 @@ public class UserHomeActivity extends AppCompatActivity {
             String _booster = booster.getText().toString();
             String booster_num = boosterNum.getText().toString();
             String vaccine_photo = vaccinePhoto.getText().toString();
+
 
             dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
                     _booster, booster_num, vaccine_photo);

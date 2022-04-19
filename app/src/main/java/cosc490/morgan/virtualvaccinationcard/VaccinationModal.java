@@ -6,7 +6,7 @@ public class VaccinationModal {
     private String userName = LoginActivity.returnUserName();
 
     //vaccination provider
-    private String vacc_provider;
+    private String vac_provider;
     //dose 1 date
     private String dose1_date;
     //dose 1 #
@@ -32,11 +32,11 @@ public class VaccinationModal {
         this.userName = userName;
     }
 
-    public String getVacc_provider(){
-        return vacc_provider;
+    public String getVac_provider(){
+        return vac_provider;
     }
-    public void setVacc_provider(String vacc_provider){
-        this.vacc_provider = vacc_provider;
+    public void setVac_provider(String vac_provider){
+        this.vac_provider = vac_provider;
     }
 
     public String getDose1_date(){
@@ -67,9 +67,7 @@ public class VaccinationModal {
         this.dose2_num = dose2_num;
     }
 
-    public String getBooster_date(){
-        return booster_date;
-    }
+    public String getBooster_date(){ return booster_date; }
     public void setBooster_date(String Booster_date){
         this.booster_date = booster_date;
     }
@@ -95,9 +93,9 @@ public class VaccinationModal {
         this.id = id;
     }
 
-    public VaccinationModal(String vacc_provider, String dose1_date, String dose1_num,
+    public VaccinationModal(String vac_provider, String dose1_date, String dose1_num,
                             String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo){
-        this.vacc_provider = vacc_provider;
+        this.vac_provider = vac_provider;
         this.dose1_date = dose1_date;
         this.dose1_num = dose1_num;
         this.dose2_date = dose2_date;

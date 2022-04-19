@@ -20,7 +20,9 @@
       android:layout_marginStart="0dp"
       android:layout_marginTop="60dp"
       android:contentDescription="@string/profilephoto"
-      tools:srcCompat="@tools:sample/avatars" />
+      tools:srcCompat="@tools:sample/avatars"
+      android:src="@drawable/img"
+      />
 
 
   <!--bottom bar should include settings, home button, info page-->

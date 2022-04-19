@@ -10,12 +10,8 @@ import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
 
-    //username and password
-    //private static final String userName = LoginActivity.returnUserName();
-    //private static final String password = LoginActivity.returnUserPassword();
-
     //name of db
-    private static final String DB_NAME = "usersdb";
+    private static final String DB_NAME = "usersDB";
 
     //database version
     private static final int DB_VERSION = 1;
@@ -31,7 +27,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //password
     public static final String PASSWORD_COL = "password";
     //vaccination provider
-    public static final String VACC_PROVIDER_COL = "vaccine_provider";
+    public static final String VAC_PROVIDER_COL = "vaccine_provider";
     //dose 1 date
     public static final String DOSE1_DATE_COL = "dose1_date";
     //dose 1 #
@@ -62,7 +58,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NAME_COL+ " TEXT, "
                 + PASSWORD_COL+ " TEXT, "
-                + VACC_PROVIDER_COL+ " TEXT, "
+                + VAC_PROVIDER_COL+ " TEXT, "
                 + DOSE1_DATE_COL + " DATE, "
                 + DOSE1_NUM_COL + " TEXT, "
                 + DOSE2_DATE_COL + " DATE, "
@@ -75,14 +71,14 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public void addNewRecord(String userName, String password, String vacc_provider, String dose1_date, String dose1_num,
+    public void addNewRecord(String userName, String password, String vac_provider, String dose1_date, String dose1_num,
                              String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put(NAME_COL, userName);
         values.put(PASSWORD_COL, password);
-        values.put(VACC_PROVIDER_COL, vacc_provider);
+        values.put(VAC_PROVIDER_COL, vac_provider);
         values.put(DOSE1_DATE_COL, dose1_date);
         values.put(DOSE1_NUM_COL, dose1_num);
         values.put(DOSE2_DATE_COL, dose2_date);

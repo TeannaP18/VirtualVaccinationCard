@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,12 +14,10 @@ import java.util.ArrayList;
 //adapter class for setting data to items of recycler view
 public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdapter.ViewHolder> {
 
-    private ArrayList<VaccinationModal> vaccinationModalArrayList;
-    private Context context;
+    private final ArrayList<VaccinationModal> vaccinationModalArrayList;
 
-    public VaccinationRVAdapter(ArrayList<VaccinationModal> vaccinationModalArrayList,Context context){
+    public VaccinationRVAdapter(ArrayList<VaccinationModal> vaccinationModalArrayList, Context context){
         this.vaccinationModalArrayList = vaccinationModalArrayList;
-        this.context = context;
     }
 
 
@@ -49,9 +46,16 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         return vaccinationModalArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName, dose1DateTV, dose1NumTV, dose2DateTV, dose2NumTV, boosterDateTV, boosterNumTV, cardPhotoTV;
+        private final TextView userName;
+        private final TextView dose1DateTV;
+        private final TextView dose1NumTV;
+        private final TextView dose2DateTV;
+        private final TextView dose2NumTV;
+        private final TextView boosterDateTV;
+        private final TextView boosterNumTV;
+        private final TextView cardPhotoTV;
 
         public ViewHolder(View itemView) {
             super(itemView);

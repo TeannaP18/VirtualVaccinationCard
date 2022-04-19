@@ -61,7 +61,7 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
             dose2NumTV = itemView.findViewById(R.id.tvDose2Num);
             boosterDateTV = itemView.findViewById(R.id.tvBoosterDate);
             boosterNumTV = itemView.findViewById(R.id.tvBoosterNum);
-            cardPhotoTV = itemView.findViewById(R.id.imageVaccination);
+            cardPhotoTV = itemView.findViewById(R.id.tvCardPhoto);
         }
     }
 }

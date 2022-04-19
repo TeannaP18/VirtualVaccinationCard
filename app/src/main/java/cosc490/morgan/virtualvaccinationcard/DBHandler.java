@@ -7,13 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.function.LongFunction;
 
 public class DBHandler extends SQLiteOpenHelper {
 
     //username and password
-    String userName = LoginActivity.returnUserName();
-    String password = LoginActivity.returnUserPassword();
+    //private static final String userName = LoginActivity.returnUserName();
+    //private static final String password = LoginActivity.returnUserPassword();
 
     //name of db
     private static final String DB_NAME = "usersdb";
@@ -88,27 +87,6 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(DOSE2_DATE_COL, dose2_date);
         values.put(DOSE2_NUM_COL, dose2_num);
         values.put(BOOSTER_DATE_COL, booster_date);
-        values.put(BOOSTER_NUM_COL, booster_num);
-        values.put(CARD_PHOTO_COL, card_photo);
-
-        db.insert(TABLE_NAME, null, values);
-        db.close();
-
-    }
-
-    public void addNewVaccine(String vacc_provider, String dose1_date, String dose1_num,
-                              String dose2_date, String dose2_num,
-                              String booster_date, String booster_num, String card_photo){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        //add data based on user name and password
-        values.put(VACC_PROVIDER_COL, vacc_provider);
-        values.put(DOSE1_DATE_COL, String.valueOf(dose1_date));
-        values.put(DOSE1_NUM_COL, dose1_num);
-        values.put(DOSE2_DATE_COL, String.valueOf(dose2_date));
-        values.put(DOSE2_NUM_COL, dose2_num);
-        values.put(BOOSTER_DATE_COL, String.valueOf(booster_date));
         values.put(BOOSTER_NUM_COL, booster_num);
         values.put(CARD_PHOTO_COL, card_photo);
 

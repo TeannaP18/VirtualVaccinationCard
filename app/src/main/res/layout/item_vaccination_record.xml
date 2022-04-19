@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,146 +7,150 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvUserName"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/user_name"
-        android:textSize="20sp"
-        tools:ignore="RelativeOverlap" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_name"
+            android:textSize="20sp"
+            tools:ignore="RelativeOverlap" />
 
-    <TextView
-        android:id="@+id/tvVaccineProvider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/tvUserName"
-        android:hint="@string/vaccine_provider" />
+        <TextView
+            android:id="@+id/tvVaccineProvider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_below="@id/tvUserName"
+            android:hint="@string/vaccine_provider" />
 
-    <!--Add Titles for columns here -->
-    <TextView
-        android:id="@+id/tvTitles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_below="@id/tvVaccineProvider"
-        android:text="@string/dose_date_lot_number"
-        android:textStyle="bold"/>
+        <!--Add Titles for columns here -->
+        <TextView
+            android:id="@+id/tvTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_below="@id/tvVaccineProvider"
+            android:text="@string/dose_date_lot_number"
+            android:textStyle="bold"/>
 
-    <!--Dose 1-->
-    <TextView
-        android:id="@+id/tvDose1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:layout_below="@id/tvTitles"
-        android:text="@string/dose_1" />
+        <!--Dose 1-->
+        <TextView
+            android:id="@+id/tvDose1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:layout_below="@id/tvTitles"
+            android:text="@string/dose_1" />
 
-    <TextView
-        android:id="@+id/tvDose1Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:hint="@string/dose_1_date"
-        android:layout_below="@id/tvTitles"
-        android:layout_toEndOf="@+id/tvDose1" />
+        <TextView
+            android:id="@+id/tvDose1Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:hint="@string/dose_1_date"
+            android:layout_below="@id/tvTitles"
+            android:layout_toEndOf="@+id/tvDose1" />
 
-    <TextView
-        android:id="@+id/tvDose1Num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:hint="@string/dose_1_num"
-        android:layout_below="@id/tvTitles"
-        android:layout_toEndOf="@id/tvDose1Date"/>
+        <TextView
+            android:id="@+id/tvDose1Num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:hint="@string/dose_1_num"
+            android:layout_below="@id/tvTitles"
+            android:layout_toEndOf="@id/tvDose1Date"/>
 
-    <!--Dose 2-->
-    <TextView
-        android:id="@+id/tvDose2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:text="@string/dose_2"
-        android:layout_below="@id/tvDose1"/>
+        <!--Dose 2-->
+        <TextView
+            android:id="@+id/tvDose2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:text="@string/dose_2"
+            android:layout_below="@id/tvDose1"/>
 
-    <TextView
-        android:id="@+id/tvDose2Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:hint="@string/dose_2_date"
-        android:layout_below="@id/tvDose1Date"
-        android:layout_toEndOf="@id/tvDose2"/>
+        <TextView
+            android:id="@+id/tvDose2Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:hint="@string/dose_2_date"
+            android:layout_below="@id/tvDose1Date"
+            android:layout_toEndOf="@id/tvDose2"/>
 
-    <TextView
-        android:id="@+id/tvDose2Num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:hint="@string/dose_2_num"
-        android:layout_below="@id/tvDose1Date"
-        android:layout_toEndOf="@id/tvDose2Date"/>
+        <TextView
+            android:id="@+id/tvDose2Num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:hint="@string/dose_2_num"
+            android:layout_below="@id/tvDose1Date"
+            android:layout_toEndOf="@id/tvDose2Date"/>
 
-    <!--Booster-->
-    <TextView
-        android:id="@+id/tvBooster"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:text="@string/booster"
-        android:layout_below="@id/tvDose2"/>
+        <!--Booster-->
+        <TextView
+            android:id="@+id/tvBooster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:text="@string/booster"
+            android:layout_below="@id/tvDose2"/>
 
-    <TextView
-        android:id="@+id/tvBoosterDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:hint="@string/booster_date"
-        android:layout_below="@id/tvDose2Date"
-        android:layout_toEndOf="@id/tvBooster"/>
+        <TextView
+            android:id="@+id/tvBoosterDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:hint="@string/booster_date"
+            android:layout_below="@id/tvDose2Date"
+            android:layout_toEndOf="@id/tvBooster"/>
 
-    <TextView
-        android:id="@+id/tvBoosterNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:hint="@string/booster_num"
-        android:layout_below="@id/tvDose2Date"
-        android:layout_toEndOf="@id/tvBoosterDate"/>
+        <TextView
+            android:id="@+id/tvBoosterNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:hint="@string/booster_num"
+            android:layout_below="@id/tvDose2Date"
+            android:layout_toEndOf="@id/tvBoosterDate"/>
 
 
-    <!--should be users vaccination card-->
-    <Switch
-        android:id="@+id/ApprovalSwitch"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
-        android:allowUndo="true"
-        android:text="@string/approved"
-        tools:ignore="UseSwitchCompatOrMaterialXml"
-        tools:targetApi="m" />
+        <!--should be users vaccination card-->
+        <Switch
+            android:id="@+id/ApprovalSwitch"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            android:allowUndo="true"
+            android:text="@string/approved"
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            tools:targetApi="m" />
 
-    <ImageView
-        android:id="@+id/imageVaccination"
-        android:layout_width="148dp"
-        android:layout_height="114dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="177dp"
-        app:srcCompat="@android:drawable/ic_menu_camera"
-        android:contentDescription="@string/vaccinecard" />
+        <ImageView
+            android:id="@+id/imageVaccination"
+            android:layout_width="148dp"
+            android:layout_height="114dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="177dp"
+            app:srcCompat="@android:drawable/ic_menu_camera"
+            android:contentDescription="@string/vaccinecard" />
+    </RelativeLayout>
 
-</RelativeLayout>
+</androidx.cardview.widget.CardView>

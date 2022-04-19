@@ -15,9 +15,11 @@ import java.util.ArrayList;
 public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdapter.ViewHolder> {
 
     private final ArrayList<VaccinationModal> vaccinationModalArrayList;
+    private final Context context;
 
     public VaccinationRVAdapter(ArrayList<VaccinationModal> vaccinationModalArrayList, Context context){
         this.vaccinationModalArrayList = vaccinationModalArrayList;
+        this.context = context;
     }
 
 
@@ -48,14 +50,7 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView userName;
-        private final TextView dose1DateTV;
-        private final TextView dose1NumTV;
-        private final TextView dose2DateTV;
-        private final TextView dose2NumTV;
-        private final TextView boosterDateTV;
-        private final TextView boosterNumTV;
-        private final TextView cardPhotoTV;
+        private TextView userName, dose1DateTV, dose1NumTV, dose2DateTV, dose2NumTV, boosterDateTV, boosterNumTV, cardPhotoTV;
 
         public ViewHolder(View itemView) {
             super(itemView);

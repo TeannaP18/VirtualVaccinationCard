@@ -34,5 +34,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         vaccinationsRV.setLayoutManager(linearLayoutManager);
 
         vaccinationsRV.setAdapter(vaccinationRVAdapter);
+
+        
     }
 }

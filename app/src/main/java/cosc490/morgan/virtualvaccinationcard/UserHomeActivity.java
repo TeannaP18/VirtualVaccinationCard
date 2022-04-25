@@ -42,7 +42,6 @@ public class UserHomeActivity extends AppCompatActivity {
             String booster_num = boosterNum.getText().toString();
             String vaccine_photo = vaccinePhoto.getText().toString();
 
-
             dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
                     _booster, booster_num, vaccine_photo);
 

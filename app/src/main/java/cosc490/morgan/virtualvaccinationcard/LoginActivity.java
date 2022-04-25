@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             else{
                 //toast for login failure
-                Toast.makeText(LoginActivity.this, "Login FAILED!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LoginActivity.this, "Login FAILED!", Toast.LENGTH_SHORT).show();
                 //open user homepage
                 openAdminHome();
             }

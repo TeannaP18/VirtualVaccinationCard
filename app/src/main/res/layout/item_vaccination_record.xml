@@ -27,14 +27,6 @@
             android:hint="@string/vaccine_provider" />
 
         <!--Add Titles for columns here -->
-        <TextView
-            android:id="@+id/tvTitles"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_below="@id/tvVaccineProvider"
-            android:text="@string/dose_date_lot_number"
-            android:textStyle="bold"/>
 
         <!--Dose 1-->
         <TextView
@@ -43,7 +35,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:padding="5dp"
-            android:layout_below="@id/tvTitles"
+            android:layout_below="@id/tvVaccineProvider"
             android:text="@string/dose_1" />
 
         <TextView
@@ -53,7 +45,7 @@
             android:textSize="16sp"
             android:padding="5dp"
             android:hint="@string/dose_1_date"
-            android:layout_below="@id/tvTitles"
+            android:layout_below="@id/tvVaccineProvider"
             android:layout_toEndOf="@+id/tvDose1" />
 
         <TextView
@@ -63,7 +55,7 @@
             android:textSize="16sp"
             android:padding="5dp"
             android:hint="@string/dose_1_num"
-            android:layout_below="@id/tvTitles"
+            android:layout_below="@id/tvVaccineProvider"
             android:layout_toEndOf="@id/tvDose1Date"/>
 
         <!--Dose 2-->

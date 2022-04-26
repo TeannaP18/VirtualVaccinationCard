@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class UserHome2Activity extends AppCompatActivity {
 
+    String vaccine_provider, dose1_date, dose1_num, dose2_date, dose2_num, booster_date, booster_num;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,22 @@ public class UserHome2Activity extends AppCompatActivity {
         dose2num.setText(UserHomeActivity.returnDose2Num());
         booster.setText(UserHomeActivity.returnBooster());
         boosterNum.setText(UserHomeActivity.returnBoosterNum());
+
+        vaccine_provider = getIntent().getExtras().getString("VaccineProvider");
+        dose1_date = getIntent().getExtras().getString("Dose1Date");
+        dose1_num = getIntent().getExtras().getString("Dose1Num");
+        dose2_date = getIntent().getExtras().getString("Dose2Date");
+        dose2_num = getIntent().getExtras().getString("Dose2Num");
+        booster_date = getIntent().getExtras().getString("BoosterDate");
+        booster_num = getIntent().getExtras().getString("BoosterNum");
+
+        vaccineProvider.setText(vaccine_provider);
+        dose1.setText(dose1_date);
+        dose1num.setText(dose1_num);
+        dose2.setText(dose2_date);
+        dose2num.setText(dose2_num);
+        booster.setText(booster_date);
+        boosterNum.setText(booster_num);
 
         //if approved from admin side, approval status = "Approved"
         approvalStatus.setText("Not Approved");

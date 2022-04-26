@@ -40,13 +40,6 @@ public class UserHomeActivity extends AppCompatActivity {
         String userName = LoginActivity.returnUserName();
         String userPassword = LoginActivity.returnUserPassword();
 
-        rProvider = vaccineProvider.getText().toString();
-        rDose1Date = dose1.getText().toString();
-        rDose1Num = dose1num.getText().toString();
-        rDose2Date = dose2.getText().toString();
-        rDose2Num = dose2num.getText().toString();
-        rBoosterDate = booster.getText().toString();
-        rBoosterNum = boosterNum.getText().toString();
 
         btnUploadPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +77,17 @@ public class UserHomeActivity extends AppCompatActivity {
 
             //navigate to home page with vaccination record on it
             Intent intent = new Intent(this, UserHome2Activity.class);
+
+            intent.putExtra("VaccineProvider", vaccine_provider);
+            intent.putExtra("Dose1Date", dose_1);
+            intent.putExtra("Dose1Num", dose_1_num);
+            intent.putExtra("Dose2Date", dose_2);
+            intent.putExtra("Dose2Num", dose_2_num);
+            intent.putExtra("BoosterDate", _booster);
+            intent.putExtra("BoosterNum", booster_num);
+
             startActivity(intent);
+            finish();
 
         });
     }

@@ -150,7 +150,7 @@
                 android:textSize="12sp" /> -->
 
             <Button
-                android:id="@+id/btnAddPhoto"
+                android:id="@+id/btnUploadPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtBoosterNum"
@@ -162,7 +162,7 @@
                 android:id="@+id/btnSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnAddPhoto"
+                android:layout_below="@+id/btnUploadPhoto"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="150dp"

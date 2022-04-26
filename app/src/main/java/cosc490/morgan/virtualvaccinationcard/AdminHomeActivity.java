@@ -45,26 +45,26 @@ public class AdminHomeActivity extends AppCompatActivity {
         switchCompat = findViewById(R.id.ApprovalSwitch);
 
         //save switch state
-        SharedPreferences sharedPreferences = getSharedPreferences("save_approval", MODE_PRIVATE);
-        switchCompat.setChecked(sharedPreferences.getBoolean("approval", true));
+        //SharedPreferences sharedPreferences = getSharedPreferences("save_approval", MODE_PRIVATE);
+        //switchCompat.setChecked(sharedPreferences.getBoolean("approval", true));
 
-        switchCompat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (switchCompat.isChecked()){
-                    SharedPreferences.Editor editor = getSharedPreferences("save_approval", MODE_PRIVATE).edit();
-                    editor.putBoolean("approval", true);
-                    editor.apply();
-                    switchCompat.setChecked(true);
-                    //append new approval status to user
-
-                }else{
-                    SharedPreferences.Editor editor = getSharedPreferences("save_approval", MODE_PRIVATE).edit();
-                    editor.putBoolean("approval", false);
-                    editor.apply();
-                    switchCompat.setChecked(false);
-                }
-            }
-        });
+//        switchCompat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (switchCompat.isChecked()){
+//                    SharedPreferences.Editor editor = getSharedPreferences("save_approval", MODE_PRIVATE).edit();
+//                    editor.putBoolean("approval", true);
+//                    editor.apply();
+//                    switchCompat.setChecked(true);
+//                    //append new approval status to user
+//
+//                }else{
+//                    SharedPreferences.Editor editor = getSharedPreferences("save_approval", MODE_PRIVATE).edit();
+//                    editor.putBoolean("approval", false);
+//                    editor.apply();
+//                    switchCompat.setChecked(false);
+//                }
+//            }
+//        });
     }
 }

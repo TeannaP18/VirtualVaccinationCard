@@ -2,6 +2,8 @@ package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UserHomeActivity extends AppCompatActivity {
 
     private static String rProvider, rDose1Date, rDose1Num, rDose2Date, rDose2Num, rBoosterDate, rBoosterNum;
+    private static final int RESULT_LOAD_IMAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -27,6 +30,7 @@ public class UserHomeActivity extends AppCompatActivity {
         //EditText vaccinePhoto = findViewById(R.id.EdtVaccinationPhoto);
 
         Button btnSubmit = findViewById(R.id.btnSubmit);
+        Button btnUploadPhoto = findViewById(R.id.btnUploadPhoto);
 
         DBHandler dbHandler = new DBHandler(UserHomeActivity.this);
 
@@ -40,8 +44,7 @@ public class UserHomeActivity extends AppCompatActivity {
         rDose2Num = dose2num.getText().toString();
         rBoosterDate = booster.getText().toString();
         rBoosterNum = boosterNum.getText().toString();
-
-
+        
 
         //submit button
         btnSubmit.setOnClickListener(view -> {

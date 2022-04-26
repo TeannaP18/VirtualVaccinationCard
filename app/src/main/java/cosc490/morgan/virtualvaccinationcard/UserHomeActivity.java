@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +23,7 @@ public class UserHomeActivity extends AppCompatActivity {
         EditText dose2num = findViewById(R.id.EdtDose2Num);
         EditText booster = findViewById(R.id.EdtBooster);
         EditText boosterNum = findViewById(R.id.EdtBoosterNum);
-        EditText vaccinePhoto = findViewById(R.id.EdtVaccinationPhoto);
+        //EditText vaccinePhoto = findViewById(R.id.EdtVaccinationPhoto);
 
         Button btnSubmit = findViewById(R.id.btnSubmit);
 
@@ -40,10 +41,9 @@ public class UserHomeActivity extends AppCompatActivity {
             String dose_2_num = dose2num.getText().toString();
             String _booster = booster.getText().toString();
             String booster_num = boosterNum.getText().toString();
-            String vaccine_photo = vaccinePhoto.getText().toString();
 
             dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
-                    _booster, booster_num, vaccine_photo);
+                    _booster, booster_num);
 
             Toast.makeText(UserHomeActivity.this, "Vaccination Record added successfully", Toast.LENGTH_SHORT).show();
             vaccineProvider.setText("");
@@ -53,7 +53,7 @@ public class UserHomeActivity extends AppCompatActivity {
             dose2num.setText("");
             booster.setText("");
             boosterNum.setText("");
-            vaccinePhoto.setText("");
+
 
             //navigate to home page with vaccination record on it
             Intent intent = new Intent(this, UserHome2Activity.class);

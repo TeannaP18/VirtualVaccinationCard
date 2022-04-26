@@ -41,7 +41,10 @@
                 android:id="@+id/COVID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/covid_19_vaccination"
                 android:textSize="15sp" />
             <!--should be drop down of pfizer, moderna, j&j-->
@@ -131,23 +134,35 @@
                 android:autofillHints="Enter Booster Num"
                 android:inputType="text" />
 
-            <!--should be image upload-->
+            <!--should be image upload
             <EditText
                 android:id="@+id/EdtVaccinationPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/EdtBoosterNum"
-                android:layout_margin="10dp"
-                android:hint="@string/upload_vaccine_card_photo"
-                android:textSize="12sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:autofillHints="Upload Vaccine Card Photo"
-                android:inputType="text" />
+                android:hint="@string/upload_vaccine_card_photo"
+                android:inputType="text"
+                android:textSize="12sp" /> -->
+
+            <Button
+                android:id="@+id/btnAddPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EdtBoosterNum"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:text="Upload Photo" />
 
             <Button
                 android:id="@+id/btnSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/EdtVaccinationPhoto"
+                android:layout_below="@+id/btnAddPhoto"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="150dp"

@@ -118,16 +118,18 @@
             android:layout_below="@id/tvDose2Date"
             android:layout_toEndOf="@id/tvBoosterDate"/>
 
-        <TextView
-            android:id="@+id/tvCardPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:padding="10dp"
-            android:hint="IMAGE VIEW"
-            android:layout_below="@id/tvBooster"/>
 
         <!--should be users vaccination card-->
+
+        <ImageView
+            android:id="@+id/ivVaccinePhoto"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/tvBoosterNum"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="114dp"
+            android:layout_marginTop="5dp" />
+
         <Switch
             android:id="@+id/ApprovalSwitch"
             android:layout_width="150dp"

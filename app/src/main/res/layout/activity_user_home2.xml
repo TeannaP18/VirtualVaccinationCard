@@ -37,6 +37,119 @@
       android:hint="@string/user_name"
       android:textSize="20sp" />
 
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/tvUserName"
+      android:orientation="vertical"
+      android:padding="10dp">
+
+    <TextView
+        android:id="@+id/COVIDTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/covid_19_vaccination"
+        android:textSize="15sp"
+        tools:ignore="NotSibling" />
+
+    <TextView
+        android:id="@+id/VaccineProvider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/COVIDTitle"
+        android:hint="@string/enter_vaccine_provider"
+        android:padding="5dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/Dose1Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/VaccineProvider"
+        android:hint="@string/dose_1_date"
+        android:padding="5dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/Dose1Num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/VaccineProvider"
+        android:layout_toRightOf="@id/Dose1Date"
+        android:hint="@string/dose_1_num"
+        android:padding="5dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/Dose2Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Dose1Date"
+        android:hint="@string/dose_2_date"
+        android:padding="5dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/Dose2Num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Dose1Num"
+        android:layout_toRightOf="@id/Dose2Date"
+        android:hint="@string/dose_2_num"
+        android:padding="5dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/BoosterDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Dose2Date"
+        android:hint="@string/booster_date"
+        android:padding="5dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/BoosterNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Dose2Num"
+        android:layout_toRightOf="@id/BoosterDate"
+        android:hint="@string/booster_num"
+        android:padding="5dp"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/UserVaccinationCard"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/BoosterDate" />
+
+    <TextView
+        android:id="@+id/ApprovalStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_below="@+id/UserVaccinationCard"
+        android:text="Approval Status: "
+        android:padding="5dp"/>
+
+    <TextView
+        android:id="@+id/UserApprovalStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/approved"
+        android:layout_below="@id/UserVaccinationCard"
+        android:layout_toRightOf="@+id/ApprovalStatus"
+        android:padding="5dp"/>
+
+
+  </RelativeLayout>
+
   <com.google.android.material.bottomappbar.BottomAppBar
       android:id="@+id/bottomAppBar"
       style="@style/Widget.MaterialComponents.BottomAppBar.Colored"

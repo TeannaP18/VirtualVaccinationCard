@@ -133,19 +133,19 @@
         android:id="@+id/ApprovalStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
         android:layout_below="@+id/UserVaccinationCard"
+        android:padding="5dp"
         android:text="Approval Status: "
-        android:padding="5dp"/>
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/UserApprovalStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/approved"
         android:layout_below="@id/UserVaccinationCard"
         android:layout_toRightOf="@+id/ApprovalStatus"
-        android:padding="5dp"/>
+        android:hint="@string/approved"
+        android:padding="5dp" />
 
 
   </RelativeLayout>

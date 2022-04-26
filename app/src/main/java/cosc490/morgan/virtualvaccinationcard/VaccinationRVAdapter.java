@@ -40,7 +40,7 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         holder.dose2NumTV.setText(modal.getDose2_num());
         holder.boosterDateTV.setText(modal.getBooster_date());
         holder.boosterNumTV.setText(modal.getBooster_num());
-        holder.cardPhotoTV.setText(modal.getCard_photo());
+        //holder.cardPhotoTV.setText(modal.getCard_photo());
     }
 
     @Override
@@ -50,7 +50,7 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName, dose1DateTV, dose1NumTV, dose2DateTV, dose2NumTV, boosterDateTV, boosterNumTV, cardPhotoTV;
+        private TextView userName, dose1DateTV, dose1NumTV, dose2DateTV, dose2NumTV, boosterDateTV, boosterNumTV; //cardPhotoTV;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -61,7 +61,7 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
             dose2NumTV = itemView.findViewById(R.id.tvDose2Num);
             boosterDateTV = itemView.findViewById(R.id.tvBoosterDate);
             boosterNumTV = itemView.findViewById(R.id.tvBoosterNum);
-            cardPhotoTV = itemView.findViewById(R.id.tvCardPhoto);
+            //cardPhotoTV = itemView.findViewById(R.id.tvCardPhoto);
         }
     }
 }

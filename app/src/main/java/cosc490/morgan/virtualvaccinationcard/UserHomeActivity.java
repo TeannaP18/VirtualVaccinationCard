@@ -4,12 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class UserHomeActivity extends AppCompatActivity {
+
+    private static String rProvider, rDose1Date, rDose1Num, rDose2Date, rDose2Num, rBoosterDate, rBoosterNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -32,6 +33,16 @@ public class UserHomeActivity extends AppCompatActivity {
         String userName = LoginActivity.returnUserName();
         String userPassword = LoginActivity.returnUserPassword();
 
+        rProvider = vaccineProvider.getText().toString();
+        rDose1Date = dose1.getText().toString();
+        rDose1Num = dose1num.getText().toString();
+        rDose2Date = dose2.getText().toString();
+        rDose2Num = dose2num.getText().toString();
+        rBoosterDate = booster.getText().toString();
+        rBoosterNum = boosterNum.getText().toString();
+
+
+
         //submit button
         btnSubmit.setOnClickListener(view -> {
             String vaccine_provider = vaccineProvider.getText().toString();
@@ -41,6 +52,7 @@ public class UserHomeActivity extends AppCompatActivity {
             String dose_2_num = dose2num.getText().toString();
             String _booster = booster.getText().toString();
             String booster_num = boosterNum.getText().toString();
+
 
             dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
                     _booster, booster_num);
@@ -61,5 +73,13 @@ public class UserHomeActivity extends AppCompatActivity {
 
         });
     }
+
+    public static String returnVaccineProvider(){return rProvider;}
+    public static String returnDose1Date(){return rDose1Date;}
+    public static String returnDose1Num(){return rDose1Num;}
+    public static String returnDose2Date(){return rDose2Date;}
+    public static String returnDose2Num(){return rDose2Num;}
+    public static String returnBooster(){return rBoosterDate;}
+    public static String returnBoosterNum(){return rBoosterNum;}
 
 }

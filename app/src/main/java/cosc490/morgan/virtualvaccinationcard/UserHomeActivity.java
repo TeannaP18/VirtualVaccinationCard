@@ -27,7 +27,7 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
     private static String rProvider, rDose1Date, rDose1Num, rDose2Date, rDose2Num, rBoosterDate, rBoosterNum;
     private static final int RESULT_LOAD_IMAGE = 1;
     ImageView ivVaccinationCard;
-    Button btnUploadPhoto, btnSubmit;
+    Button btnSubmit;
     EditText vaccineProvider, dose1, dose1num, dose2, dose2num, booster, boosterNum;
     String base64Image, userName, userPassword;
     DBHandler dbHandler;
@@ -47,12 +47,10 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
         boosterNum = (EditText) findViewById(R.id.EdtBoosterNum);
         //image view
         ivVaccinationCard = (ImageView) findViewById(R.id.ivVaccinationCard);
-        //buttons
+        //button
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
-        btnUploadPhoto = (Button) findViewById(R.id.btnUploadPhoto);
 
         ivVaccinationCard.setOnClickListener(this);
-        btnUploadPhoto.setOnClickListener(this);
         btnSubmit.setOnClickListener(this);
 
         dbHandler = new DBHandler(UserHomeActivity.this);
@@ -117,8 +115,6 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
             case R.id.ivVaccinationCard:
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
-                break;
-            case R.id.btnUploadPhoto:
                 //encode image to base64 string
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), ivVaccinationCard.getImageAlpha());

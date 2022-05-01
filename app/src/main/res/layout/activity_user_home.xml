@@ -138,24 +138,16 @@
                 android:layout_below="@+id/EdtBoosterNum"
                 android:layout_marginTop="21dp"
                 android:layout_marginRight="-159dp"
-                android:layout_toLeftOf="@+id/btnUploadPhoto"
                 android:contentDescription="Vaccination Card"
                 android:src="@drawable/select_photo" />
 
-            <Button
-                android:id="@+id/btnUploadPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ivVaccinationCard"
-                android:layout_marginTop="20dp"
-                android:padding="10dp"
-                android:text="Upload Photo" />
+
 
             <Button
                 android:id="@+id/btnSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnUploadPhoto"
+                android:layout_below="@+id/ivVaccinationCard"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="150dp"

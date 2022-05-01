@@ -1,6 +1,8 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +16,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.util.Base64;
+
 
 @SuppressWarnings("ALL")
 public class UserHomeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -23,6 +29,8 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
     ImageView ivVaccinationCard;
     Button btnUploadPhoto, btnSubmit;
     EditText vaccineProvider, dose1, dose1num, dose2, dose2num, booster, boosterNum;
+    String base64Image, userName, userPassword;
+    DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -45,51 +53,52 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
 
         ivVaccinationCard.setOnClickListener(this);
         btnUploadPhoto.setOnClickListener(this);
+        btnSubmit.setOnClickListener(this);
 
-        DBHandler dbHandler = new DBHandler(UserHomeActivity.this);
+        dbHandler = new DBHandler(UserHomeActivity.this);
 
-        String userName = LoginActivity.returnUserName();
-        String userPassword = LoginActivity.returnUserPassword();
-
-        //submit button
-        btnSubmit.setOnClickListener(view -> {
-            String vaccine_provider = vaccineProvider.getText().toString();
-            String dose_1 = dose1.getText().toString();
-            String dose_1_num = dose1num.getText().toString();
-            String dose_2 = dose2.getText().toString();
-            String dose_2_num = dose2num.getText().toString();
-            String _booster = booster.getText().toString();
-            String booster_num = boosterNum.getText().toString();
+        userName = LoginActivity.returnUserName();
+        userPassword = LoginActivity.returnUserPassword();
 
 
-            dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
-                    _booster, booster_num);
-
-            Toast.makeText(UserHomeActivity.this, "Vaccination Record added successfully", Toast.LENGTH_SHORT).show();
-            vaccineProvider.setText("");
-            dose1.setText("");
-            dose1num.setText("");
-            dose2.setText("");
-            dose2num.setText("");
-            booster.setText("");
-            boosterNum.setText("");
-
-
-            //navigate to home page with vaccination record on it
-            Intent intent = new Intent(this, UserHome2Activity.class);
-
-            intent.putExtra("VaccineProvider", vaccine_provider);
-            intent.putExtra("Dose1Date", dose_1);
-            intent.putExtra("Dose1Num", dose_1_num);
-            intent.putExtra("Dose2Date", dose_2);
-            intent.putExtra("Dose2Num", dose_2_num);
-            intent.putExtra("BoosterDate", _booster);
-            intent.putExtra("BoosterNum", booster_num);
-
-            startActivity(intent);
-            finish();
-
-        });
+//        btnSubmit.setOnClickListener(view -> {
+//            String vaccine_provider = vaccineProvider.getText().toString();
+//            String dose_1 = dose1.getText().toString();
+//            String dose_1_num = dose1num.getText().toString();
+//            String dose_2 = dose2.getText().toString();
+//            String dose_2_num = dose2num.getText().toString();
+//            String _booster = booster.getText().toString();
+//            String booster_num = boosterNum.getText().toString();
+//
+//
+//            dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
+//                    _booster, booster_num);
+//
+//            Toast.makeText(UserHomeActivity.this, "Vaccination Record added successfully", Toast.LENGTH_SHORT).show();
+//            vaccineProvider.setText("");
+//            dose1.setText("");
+//            dose1num.setText("");
+//            dose2.setText("");
+//            dose2num.setText("");
+//            booster.setText("");
+//            boosterNum.setText("");
+//
+//
+//            //navigate to home page with vaccination record on it
+//            Intent intent = new Intent(this, UserHome2Activity.class);
+//
+//            intent.putExtra("VaccineProvider", vaccine_provider);
+//            intent.putExtra("Dose1Date", dose_1);
+//            intent.putExtra("Dose1Num", dose_1_num);
+//            intent.putExtra("Dose2Date", dose_2);
+//            intent.putExtra("Dose2Num", dose_2_num);
+//            intent.putExtra("BoosterDate", _booster);
+//            intent.putExtra("BoosterNum", booster_num);
+//
+//            startActivity(intent);
+//            finish();
+//
+//        });
     }
 
 
@@ -110,6 +119,50 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
                 break;
             case R.id.btnUploadPhoto:
+                //encode image to base64 string
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), ivVaccinationCard.getImageAlpha());
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                byte[] imageBytes = baos.toByteArray();
+                base64Image = Base64.getEncoder().encodeToString(imageBytes);
+                Toast.makeText(UserHomeActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btnSubmit:
+                String vaccine_provider = vaccineProvider.getText().toString();
+                String dose_1 = dose1.getText().toString();
+                String dose_1_num = dose1num.getText().toString();
+                String dose_2 = dose2.getText().toString();
+                String dose_2_num = dose2num.getText().toString();
+                String _booster = booster.getText().toString();
+                String booster_num = boosterNum.getText().toString();
+
+
+                dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
+                        _booster, booster_num, base64Image);
+
+                Toast.makeText(UserHomeActivity.this, "Vaccination Record added successfully", Toast.LENGTH_SHORT).show();
+                vaccineProvider.setText("");
+                dose1.setText("");
+                dose1num.setText("");
+                dose2.setText("");
+                dose2num.setText("");
+                booster.setText("");
+                boosterNum.setText("");
+
+
+                //navigate to home page with vaccination record on it
+                Intent intent = new Intent(this, UserHome2Activity.class);
+
+                intent.putExtra("VaccineProvider", vaccine_provider);
+                intent.putExtra("Dose1Date", dose_1);
+                intent.putExtra("Dose1Num", dose_1_num);
+                intent.putExtra("Dose2Date", dose_2);
+                intent.putExtra("Dose2Num", dose_2_num);
+                intent.putExtra("BoosterDate", _booster);
+                intent.putExtra("BoosterNum", booster_num);
+
+                startActivity(intent);
+                finish();
                 break;
         }
     }

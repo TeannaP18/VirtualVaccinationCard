@@ -72,7 +72,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public void addNewRecord(String userName, String password, String vac_provider, String dose1_date, String dose1_num,
-                             String dose2_date, String dose2_num, String booster_date, String booster_num){
+                             String dose2_date, String dose2_num, String booster_date, String booster_num, String imageString){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -85,7 +85,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(DOSE2_NUM_COL, dose2_num);
         values.put(BOOSTER_DATE_COL, booster_date);
         values.put(BOOSTER_NUM_COL, booster_num);
-        //values.put(CARD_PHOTO_COL, card_photo);
+        values.put(CARD_PHOTO_COL, imageString);
 
         db.insert(TABLE_NAME, null, values);
         db.close();

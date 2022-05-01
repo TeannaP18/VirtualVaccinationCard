@@ -134,26 +134,18 @@
                 android:autofillHints="Enter Booster Num"
                 android:inputType="text" />
 
-            <!--should be image upload
-            <EditText
-                android:id="@+id/EdtVaccinationPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/ivVaccinationCard"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_below="@+id/EdtBoosterNum"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:autofillHints="Upload Vaccine Card Photo"
-                android:hint="@string/upload_vaccine_card_photo"
-                android:inputType="text"
-                android:textSize="12sp" /> -->
+                android:layout_toLeftOf="@+id/btnUploadPhoto"/>
 
             <Button
                 android:id="@+id/btnUploadPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/EdtBoosterNum"
+                android:layout_below="@+id/ivVaccinationCard"
                 android:layout_marginTop="20dp"
                 android:padding="10dp"
                 android:text="Upload Photo" />

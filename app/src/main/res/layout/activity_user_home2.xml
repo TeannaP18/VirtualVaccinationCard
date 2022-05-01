@@ -5,11 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UserHomeActivity">
-
-  <com.google.android.material.navigation.NavigationView
-      android:layout_width="match_parent"
-      android:layout_height="60dp" />
+    tools:context=".UserHomeActivity"
+    android:background="@drawable/design_background">
 
   <ImageView
       android:id="@+id/ProfilePhoto"

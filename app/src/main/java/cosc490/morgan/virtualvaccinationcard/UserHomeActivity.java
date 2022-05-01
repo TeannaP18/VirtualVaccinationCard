@@ -1,6 +1,7 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,7 +20,7 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
 
     private static String rProvider, rDose1Date, rDose1Num, rDose2Date, rDose2Num, rBoosterDate, rBoosterNum;
     private static final int RESULT_LOAD_IMAGE = 1;
-    ImageView ivVaccinePhoto;
+    ImageView ivVaccinationCard;
     Button btnUploadPhoto, btnSubmit;
     EditText vaccineProvider, dose1, dose1num, dose2, dose2num, booster, boosterNum;
 
@@ -37,12 +38,12 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
         booster = (EditText) findViewById(R.id.EdtBooster);
         boosterNum = (EditText) findViewById(R.id.EdtBoosterNum);
         //image view
-        ivVaccinePhoto = (ImageView) findViewById(R.id.ivVaccinePhoto);
+        ivVaccinationCard = (ImageView) findViewById(R.id.ivVaccinationCard);
         //buttons
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnUploadPhoto = (Button) findViewById(R.id.btnUploadPhoto);
 
-        ivVaccinePhoto.setOnClickListener(this);
+        ivVaccinationCard.setOnClickListener(this);
         btnUploadPhoto.setOnClickListener(this);
 
         DBHandler dbHandler = new DBHandler(UserHomeActivity.this);
@@ -104,7 +105,7 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.ivVaccinePhoto:
+            case R.id.ivVaccinationCard:
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
                 break;
@@ -118,7 +119,7 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
             Uri selectedImage = data.getData();
-            ivVaccinePhoto.setImageURI(selectedImage);
+            ivVaccinationCard.setImageURI(selectedImage);
         }
     }
 }

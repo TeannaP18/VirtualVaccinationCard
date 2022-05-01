@@ -140,7 +140,7 @@
                 android:layout_marginRight="-159dp"
                 android:layout_toLeftOf="@+id/btnUploadPhoto"
                 android:contentDescription="Vaccination Card"
-                android:src="@drawable/select_photo"/>
+                android:src="@drawable/select_photo" />
 
             <Button
                 android:id="@+id/btnUploadPhoto"

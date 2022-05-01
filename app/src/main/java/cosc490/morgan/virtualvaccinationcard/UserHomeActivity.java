@@ -1,54 +1,54 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 @SuppressWarnings("ALL")
-public class UserHomeActivity extends AppCompatActivity {
+public class UserHomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static String rProvider, rDose1Date, rDose1Num, rDose2Date, rDose2Num, rBoosterDate, rBoosterNum;
     private static final int RESULT_LOAD_IMAGE = 1;
+    ImageView ivVaccinePhoto;
+    Button btnUploadPhoto, btnSubmit;
+    EditText vaccineProvider, dose1, dose1num, dose2, dose2num, booster, boosterNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        EditText vaccineProvider = findViewById(R.id.EdtVaccineProvider);
-        EditText dose1 = findViewById(R.id.EdtDose1);
-        EditText dose1num = findViewById(R.id.EdtDose1Num);
-        EditText dose2 = findViewById(R.id.EdtDose2);
-        EditText dose2num = findViewById(R.id.EdtDose2Num);
-        EditText booster = findViewById(R.id.EdtBooster);
-        EditText boosterNum = findViewById(R.id.EdtBoosterNum);
-        //EditText vaccinePhoto = findViewById(R.id.EdtVaccinationPhoto);
+        //edit texts
+        vaccineProvider = (EditText) findViewById(R.id.EdtVaccineProvider);
+        dose1 = (EditText) findViewById(R.id.EdtDose1);
+        dose1num = (EditText) findViewById(R.id.EdtDose1Num);
+        dose2 = (EditText) findViewById(R.id.EdtDose2);
+        dose2num = (EditText) findViewById(R.id.EdtDose2Num);
+        booster = (EditText) findViewById(R.id.EdtBooster);
+        boosterNum = (EditText) findViewById(R.id.EdtBoosterNum);
+        //image view
+        ivVaccinePhoto = (ImageView) findViewById(R.id.ivVaccinePhoto);
+        //buttons
+        btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        btnUploadPhoto = (Button) findViewById(R.id.btnUploadPhoto);
 
-        Button btnSubmit = findViewById(R.id.btnSubmit);
-        Button btnUploadPhoto = findViewById(R.id.btnUploadPhoto);
+        ivVaccinePhoto.setOnClickListener(this);
+        btnUploadPhoto.setOnClickListener(this);
 
         DBHandler dbHandler = new DBHandler(UserHomeActivity.this);
 
         String userName = LoginActivity.returnUserName();
         String userPassword = LoginActivity.returnUserPassword();
-
-
-        btnUploadPhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //open gallery
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
-
-            }
-        });
 
         //submit button
         btnSubmit.setOnClickListener(view -> {
@@ -91,19 +91,7 @@ public class UserHomeActivity extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
-//            Uri selectedImage = data.getData();
-//            //convert image to String to be stored in db
-//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), image);
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//            byte[] imageBytes = baos.toByteArray();
-//            String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-//        }
-//    }
+
 
     public static String returnVaccineProvider(){return rProvider;}
     public static String returnDose1Date(){return rDose1Date;}
@@ -113,4 +101,24 @@ public class UserHomeActivity extends AppCompatActivity {
     public static String returnBooster(){return rBoosterDate;}
     public static String returnBoosterNum(){return rBoosterNum;}
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.ivVaccinePhoto:
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
+                break;
+            case R.id.btnUploadPhoto:
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
+            Uri selectedImage = data.getData();
+            ivVaccinePhoto.setImageURI(selectedImage);
+        }
+    }
 }

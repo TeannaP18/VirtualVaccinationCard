@@ -133,10 +133,14 @@
 
             <ImageView
                 android:id="@+id/ivVaccinationCard"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_below="@+id/EdtBoosterNum"
-                android:layout_toLeftOf="@+id/btnUploadPhoto"/>
+                android:layout_marginTop="21dp"
+                android:layout_marginRight="-159dp"
+                android:layout_toLeftOf="@+id/btnUploadPhoto"
+                android:contentDescription="Vaccination Card"
+                android:src="@drawable/select_photo"/>
 
             <Button
                 android:id="@+id/btnUploadPhoto"

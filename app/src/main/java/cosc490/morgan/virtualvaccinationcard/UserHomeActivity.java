@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Base64;
 
 
@@ -58,45 +59,6 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
         userName = LoginActivity.returnUserName();
         userPassword = LoginActivity.returnUserPassword();
 
-
-//        btnSubmit.setOnClickListener(view -> {
-//            String vaccine_provider = vaccineProvider.getText().toString();
-//            String dose_1 = dose1.getText().toString();
-//            String dose_1_num = dose1num.getText().toString();
-//            String dose_2 = dose2.getText().toString();
-//            String dose_2_num = dose2num.getText().toString();
-//            String _booster = booster.getText().toString();
-//            String booster_num = boosterNum.getText().toString();
-//
-//
-//            dbHandler.addNewRecord(userName, userPassword, vaccine_provider, dose_1, dose_1_num, dose_2, dose_2_num,
-//                    _booster, booster_num);
-//
-//            Toast.makeText(UserHomeActivity.this, "Vaccination Record added successfully", Toast.LENGTH_SHORT).show();
-//            vaccineProvider.setText("");
-//            dose1.setText("");
-//            dose1num.setText("");
-//            dose2.setText("");
-//            dose2num.setText("");
-//            booster.setText("");
-//            boosterNum.setText("");
-//
-//
-//            //navigate to home page with vaccination record on it
-//            Intent intent = new Intent(this, UserHome2Activity.class);
-//
-//            intent.putExtra("VaccineProvider", vaccine_provider);
-//            intent.putExtra("Dose1Date", dose_1);
-//            intent.putExtra("Dose1Num", dose_1_num);
-//            intent.putExtra("Dose2Date", dose_2);
-//            intent.putExtra("Dose2Num", dose_2_num);
-//            intent.putExtra("BoosterDate", _booster);
-//            intent.putExtra("BoosterNum", booster_num);
-//
-//            startActivity(intent);
-//            finish();
-//
-//        });
     }
 
 
@@ -115,13 +77,6 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
             case R.id.ivVaccinationCard:
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
-                //encode image to base64 string
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), ivVaccinationCard.getImageAlpha());
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-                byte[] imageBytes = baos.toByteArray();
-                base64Image = Base64.getEncoder().encodeToString(imageBytes);
-                Toast.makeText(UserHomeActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnSubmit:
                 String vaccine_provider = vaccineProvider.getText().toString();
@@ -163,12 +118,32 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
             Uri selectedImage = data.getData();
             ivVaccinationCard.setImageURI(selectedImage);
+
+            //uri to bitmap conversion
+
+            if(selectedImage != null){
+                //uri to bitmap conversion
+                Bitmap bitmap = null;
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                //bitmap to base64 string conversion
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+                byte[] bytes = outputStream.toByteArray();
+
+                base64Image = Base64.getEncoder().encodeToString(bytes);
+            }
+            
         }
     }
 }

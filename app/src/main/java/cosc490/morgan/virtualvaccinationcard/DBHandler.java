@@ -51,6 +51,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    private VaccinationRVAdapter vaccinationRVAdapter;
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
@@ -117,5 +119,12 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         cursorVaccinations.close();
         return vaccinationModalArrayList;
+    }
+
+    public void addApprovalStatus(){
+        //select from db by ID
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.rawQuery("SELECT * FROM " + TABLE_NAME, "WHERE " + ID_COL == vaccinationRVAdapter.getItemId());
+        //append approval status "1" for approved to approval column
     }
 }

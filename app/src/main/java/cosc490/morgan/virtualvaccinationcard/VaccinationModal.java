@@ -1,5 +1,9 @@
 package cosc490.morgan.virtualvaccinationcard;
 
+import android.net.Uri;
+
+import java.net.URI;
+
 //modal class for storing vaccination card data
 public class VaccinationModal {
 

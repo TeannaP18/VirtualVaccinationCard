@@ -67,7 +67,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + DOSE2_NUM_COL + " TEXT, "
                 + BOOSTER_DATE_COL + " DATE, "
                 + BOOSTER_NUM_COL + " TEXT, "
-                + CARD_PHOTO_COL + " TEXT, "
+                + CARD_PHOTO_COL + " BLOB, "
                 + APPROVAL_COL + " INTEGER)";
         sqLiteDatabase.execSQL(query);
 
@@ -93,6 +93,8 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
 
     }
+
+    //method to append approval status to db
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
@@ -121,10 +123,5 @@ public class DBHandler extends SQLiteOpenHelper {
         return vaccinationModalArrayList;
     }
 
-    public void addApprovalStatus(){
-        //select from db by ID
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        db.rawQuery("SELECT * FROM " + TABLE_NAME, "WHERE " + ID_COL == vaccinationRVAdapter.getItemId());
-        //append approval status "1" for approved to approval column
-    }
+
 }

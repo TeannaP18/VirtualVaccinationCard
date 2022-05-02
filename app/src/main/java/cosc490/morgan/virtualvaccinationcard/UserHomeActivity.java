@@ -143,7 +143,7 @@ public class UserHomeActivity extends AppCompatActivity implements View.OnClickL
 
                 base64Image = Base64.getEncoder().encodeToString(bytes);
             }
-            
+
         }
     }
 }

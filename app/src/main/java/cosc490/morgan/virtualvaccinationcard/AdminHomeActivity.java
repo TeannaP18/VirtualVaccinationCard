@@ -42,6 +42,7 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         vaccinationsRV.setAdapter(vaccinationRVAdapter);
 
+
         switchCompat = findViewById(R.id.ApprovalSwitch);
 
         //save switch state

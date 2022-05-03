@@ -2,6 +2,7 @@ package cosc490.morgan.virtualvaccinationcard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
 import android.media.Image;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -51,6 +52,11 @@ public class UserHome2Activity extends AppCompatActivity {
         boosterNum.setText(booster_num);
 
         //if approved from admin side, approval status = "Approved"
+//        if (approvalStatus.getText() == "1"){
+//            approvalStatus.setText("Approved");
+//        }else{
+//            approvalStatus.setText("Not Approved");
+//        }
         approvalStatus.setText("Not Approved");
     }
 }

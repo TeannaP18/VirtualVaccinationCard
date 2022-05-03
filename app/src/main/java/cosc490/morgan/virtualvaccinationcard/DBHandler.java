@@ -56,7 +56,6 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
-                //+ ID_COL + "INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NAME_COL+ " TEXT, "
                 + PASSWORD_COL+ " TEXT, "
@@ -88,6 +87,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(BOOSTER_DATE_COL, booster_date);
         values.put(BOOSTER_NUM_COL, booster_num);
         values.put(CARD_PHOTO_COL, imageString);
+        //values.put(APPROVAL_COL, appendApproval());
 
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -95,6 +95,49 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //method to append approval status to db
+//    appendApproval
+//    getRecordByID
+//    values.put(APPROVAL_COL, "1")
+
+
+
+    //DELETE THIS//
+    public int appendApproval()
+    {
+
+//        Cursor cursor=null;
+//        Bank bnk = null;
+//        cursor =  this.db.rawQuery("select * from " + BanksTable.NAME + " where " + BanksTable.COL_ID + "=" + bankId  , null);
+//        if (cursor != null)
+//        {
+//            if (cursor.moveToFirst())
+//            {
+//                int id = cursor.getInt(cursor.getColumnIndex(BanksTable.COL_ID));
+//                String name = cursor.getString(cursor.getColumnIndex(BanksTable.COL_NAME));
+//                String url = cursor.getString(cursor.getColumnIndex(BanksTable.COL_IMAGE_URL));
+//                byte[] image = cursor.getBlob(cursor.getColumnIndex(BanksTable.COL_IMAGE));
+//                bnk=new Bank();
+//                bnk.setId(id);
+//                bnk.setImageURL(url);
+//                bnk.setName(name);
+//                bnk.setImageByteArray(image);
+//            }
+//            cursor.close();
+//        }
+//        return bnk;
+
+        return 0;
+    }
+
+
+//    public void appendApproval(){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        Cursor cursor = null;
+//
+//        //call get record by ID here
+//    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
@@ -122,6 +165,35 @@ public class DBHandler extends SQLiteOpenHelper {
         cursorVaccinations.close();
         return vaccinationModalArrayList;
     }
+
+
+    //USE THIS//
+//    public VaccinationModal getRecordById(int recordId)
+//    {
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor cursor=null;
+//        VaccinationModal modal = null;
+//        cursor =  this.db.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
+//        if (cursor != null)
+//        {
+//            if (cursor.moveToFirst())
+//            {
+//                int id = cursor.getInt(cursor.getColumnIndex(ID_COL));
+//                String name = cursor.getString(cursor.getColumnIndex(BanksTable.COL_NAME));
+//                String url = cursor.getString(cursor.getColumnIndex(BanksTable.COL_IMAGE_URL));
+//                byte[] image = cursor.getBlob(cursor.getColumnIndex(BanksTable.COL_IMAGE));
+//                bnk=new Bank();
+//                bnk.setId(id);
+//                bnk.setImageURL(url);
+//                bnk.setName(name);
+//                bnk.setImageByteArray(image);
+//            }
+//            cursor.close();
+//        }
+//        return bnk;
+//
+//    }
 
 
 }

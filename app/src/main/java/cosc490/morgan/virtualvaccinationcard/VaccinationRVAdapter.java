@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -67,6 +68,9 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
 
         private TextView userName, vaccineProvider,  dose1DateTV, dose1NumTV, dose2DateTV, dose2NumTV, boosterDateTV, boosterNumTV;
         private ImageView vaccineCardPhoto;
+
+        //switch of the individual item!
+        private SwitchCompat approvalSwitch;
 
         public ViewHolder(View itemView) {
             super(itemView);

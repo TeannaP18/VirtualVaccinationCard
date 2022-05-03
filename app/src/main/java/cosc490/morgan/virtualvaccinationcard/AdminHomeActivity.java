@@ -39,7 +39,7 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         vaccinationsRV.setAdapter(vaccinationRVAdapter);
 
-
+        //switcj of the specific item!
         switchCompat = findViewById(R.id.ApprovalSwitch);
 
 

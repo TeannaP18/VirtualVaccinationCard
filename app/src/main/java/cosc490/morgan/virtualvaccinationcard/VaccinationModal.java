@@ -7,6 +7,8 @@ public class VaccinationModal {
 
     private String userName = LoginActivity.returnUserName();
 
+    //ID
+    private int id;
     //vaccination provider
     private String vac_provider;
     //dose 1 date
@@ -25,8 +27,9 @@ public class VaccinationModal {
     //bitmap of card photo
     private String card_photo;
 
-    private int id;
 
+    public int getID(){return id;}
+    public void setId(int id){this.id = id;}
 
     public String getUserName(){
         return userName;

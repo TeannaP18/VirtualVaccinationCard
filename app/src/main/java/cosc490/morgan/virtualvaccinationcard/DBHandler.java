@@ -1,5 +1,6 @@
 package cosc490.morgan.virtualvaccinationcard;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -99,44 +100,17 @@ public class DBHandler extends SQLiteOpenHelper {
 //    getRecordByID
 //    values.put(APPROVAL_COL, "1")
 
-
-
-    //DELETE THIS//
-    public int appendApproval()
-    {
-
-//        Cursor cursor=null;
-//        Bank bnk = null;
-//        cursor =  this.db.rawQuery("select * from " + BanksTable.NAME + " where " + BanksTable.COL_ID + "=" + bankId  , null);
-//        if (cursor != null)
-//        {
-//            if (cursor.moveToFirst())
-//            {
-//                int id = cursor.getInt(cursor.getColumnIndex(BanksTable.COL_ID));
-//                String name = cursor.getString(cursor.getColumnIndex(BanksTable.COL_NAME));
-//                String url = cursor.getString(cursor.getColumnIndex(BanksTable.COL_IMAGE_URL));
-//                byte[] image = cursor.getBlob(cursor.getColumnIndex(BanksTable.COL_IMAGE));
-//                bnk=new Bank();
-//                bnk.setId(id);
-//                bnk.setImageURL(url);
-//                bnk.setName(name);
-//                bnk.setImageByteArray(image);
-//            }
-//            cursor.close();
-//        }
-//        return bnk;
-
-        return 0;
+    public void appendApproval(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        Cursor cursor;
+        VaccinationModal modal = null;
+        int recordId = modal.getID();
+        //select query
+        cursor =  db.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
+        //append approval status to db
+        values.put(APPROVAL_COL, 1);
     }
-
-
-//    public void appendApproval(){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        Cursor cursor = null;
-//
-//        //call get record by ID here
-//    }
 
 
     @Override
@@ -167,32 +141,26 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
+
+
     //USE THIS//
 //    public VaccinationModal getRecordById(int recordId)
 //    {
 //
-//        SQLiteDatabase db = this.getWritableDatabase();
+//        SQLiteDatabase database = this.getWritableDatabase();
 //        Cursor cursor=null;
 //        VaccinationModal modal = null;
-//        cursor =  this.db.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
+//        cursor =  database.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
 //        if (cursor != null)
 //        {
 //            if (cursor.moveToFirst())
 //            {
-//                int id = cursor.getInt(cursor.getColumnIndex(ID_COL));
-//                String name = cursor.getString(cursor.getColumnIndex(BanksTable.COL_NAME));
-//                String url = cursor.getString(cursor.getColumnIndex(BanksTable.COL_IMAGE_URL));
-//                byte[] image = cursor.getBlob(cursor.getColumnIndex(BanksTable.COL_IMAGE));
-//                bnk=new Bank();
-//                bnk.setId(id);
-//                bnk.setImageURL(url);
-//                bnk.setName(name);
-//                bnk.setImageByteArray(image);
+//                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(ID_COL));
+//                modal.setId(id);
 //            }
 //            cursor.close();
 //        }
-//        return bnk;
-//
+//        return modal;
 //    }
 
 

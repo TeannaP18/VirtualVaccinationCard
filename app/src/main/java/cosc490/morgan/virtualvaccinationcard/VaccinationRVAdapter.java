@@ -86,7 +86,7 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         }
     }
 
-    //convert base64 string to uri or bitmap
+    //convert base64 string to bitmap
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Bitmap convertBase64String(String base64String){
         byte[] decodedBase64String = Base64.getDecoder().decode(base64String);

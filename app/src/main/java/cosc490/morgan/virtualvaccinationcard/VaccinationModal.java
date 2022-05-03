@@ -1,8 +1,6 @@
 package cosc490.morgan.virtualvaccinationcard;
 
-import android.net.Uri;
-
-import java.net.URI;
+import android.graphics.Bitmap;
 
 //modal class for storing vaccination card data
 public class VaccinationModal {
@@ -24,10 +22,11 @@ public class VaccinationModal {
     //booster #
     private String booster_num;
 
-    //image of physical card
+    //bitmap of card photo
     private String card_photo;
 
     private int id;
+
 
     public String getUserName(){
         return userName;

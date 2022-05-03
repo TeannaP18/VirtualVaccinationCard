@@ -6,13 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 
 import java.util.ArrayList;
 
-import cosc490.morgan.virtualvaccinationcard.R;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
@@ -45,9 +42,13 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         switchCompat = findViewById(R.id.ApprovalSwitch);
 
-        //save switch state
-        //SharedPreferences sharedPreferences = getSharedPreferences("save_approval", MODE_PRIVATE);
-        //switchCompat.setChecked(sharedPreferences.getBoolean("approval", true));
+
+    }
+}
+
+//save switch state
+//SharedPreferences sharedPreferences = getSharedPreferences("save_approval", MODE_PRIVATE);
+//switchCompat.setChecked(sharedPreferences.getBoolean("approval", true));
 
 //        switchCompat.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -67,5 +68,3 @@ public class AdminHomeActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
-    }
-}

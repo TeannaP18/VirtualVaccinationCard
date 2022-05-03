@@ -1,7 +1,10 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.Context;
-import android.media.Image;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 //adapter class for setting data to items of recycler view
 public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdapter.ViewHolder> {
@@ -32,6 +37,9 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         return new ViewHolder(view);
     }
 
+    //try the below holders with the set card functions from vaccination modal
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull VaccinationRVAdapter.ViewHolder holder, int position) {
         VaccinationModal modal = vaccinationModalArrayList.get(position);
@@ -43,8 +51,11 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         holder.dose2NumTV.setText(modal.getDose2_num());
         holder.boosterDateTV.setText(modal.getBooster_date());
         holder.boosterNumTV.setText(modal.getBooster_num());
-        //holder.vaccineCardPhoto.setImageURI();
-        //holder.cardPhotoTV.setText(modal.getCard_photo());
+
+        //base64String conversion to Bitmap to display retrieve image
+        String imageString = modal.getCard_photo();
+        Bitmap cardPhoto = convertBase64String(imageString);
+        holder.vaccineCardPhoto.setImageBitmap(cardPhoto);
     }
 
     @Override
@@ -70,4 +81,15 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
             vaccineCardPhoto = itemView.findViewById(R.id.ivVaccinePhoto);
         }
     }
+
+    //convert base64 string to uri or bitmap
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public Bitmap convertBase64String(String base64String){
+        byte[] decodedBase64String = Base64.getDecoder().decode(base64String);
+        Bitmap decodedByteArray = BitmapFactory.decodeByteArray(decodedBase64String, 0, base64String.length());
+
+        return decodedByteArray;
+    }
+
+
 }

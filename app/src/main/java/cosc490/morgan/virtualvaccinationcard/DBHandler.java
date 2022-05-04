@@ -96,17 +96,12 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(BOOSTER_DATE_COL, booster_date);
         values.put(BOOSTER_NUM_COL, booster_num);
         values.put(CARD_PHOTO_COL, imageString);
-        //values.put(APPROVAL_COL, appendApproval());
+        values.put(APPROVAL_COL, 0);
 
         db.insert(TABLE_NAME, null, values);
         db.close();
 
     }
-
-    //method to append approval status to db
-//    appendApproval
-//    getRecordByID
-//    values.put(APPROVAL_COL, "1")
 
     //try geeks for geeks tutorial to update db
     public void appendApproval(){

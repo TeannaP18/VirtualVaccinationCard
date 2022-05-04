@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.Switch;
 
 import java.util.ArrayList;
 
@@ -19,8 +20,7 @@ public class AdminHomeActivity extends AppCompatActivity {
     private DBHandler dbHandler;
     private VaccinationRVAdapter vaccinationRVAdapter;
     private RecyclerView vaccinationsRV;
-
-    SwitchCompat switchCompat;
+    private Switch aSwitch;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -41,8 +41,6 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         vaccinationsRV.setAdapter(vaccinationRVAdapter);
 
-        //switcj of the specific item!
-        //switchCompat = findViewById(R.id.ApprovalSwitch);
 
 
     }

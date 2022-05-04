@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
@@ -103,18 +104,43 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    //try geeks for geeks tutorial to update db
-    public void appendApproval(){
+    //method for updating record
+    public void updateRecord(String userName, String password, String vac_provider, String dose1_date, String dose1_num,
+                               String dose2_date, String dose2_num, String booster_date, String booster_num, String imageString,
+                               String original_status, int approval_status){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        Cursor cursor;
-        VaccinationModal modal = null;
-        int recordId = modal.getID();
-        //select query
-        cursor =  db.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
-        //append approval status to db
-        values.put(APPROVAL_COL, 1);
+
+        original_status = "0";
+
+        values.put(NAME_COL, userName);
+        values.put(PASSWORD_COL, password);
+        values.put(VAC_PROVIDER_COL, vac_provider);
+        values.put(DOSE1_DATE_COL, dose1_date);
+        values.put(DOSE1_NUM_COL, dose1_num);
+        values.put(DOSE2_DATE_COL, dose2_date);
+        values.put(DOSE2_NUM_COL, dose2_num);
+        values.put(BOOSTER_DATE_COL, booster_date);
+        values.put(BOOSTER_NUM_COL, booster_num);
+        values.put(CARD_PHOTO_COL, imageString);
+
+        values.put(APPROVAL_COL, approval_status);
+        db.update(TABLE_NAME, values, "name=?",new String[]{original_status});
+
+        db.close();
     }
+
+//    public void appendApproval(){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        Cursor cursor;
+//        VaccinationModal modal = null;
+//        int recordId = modal.getID();
+//        //select query
+//        cursor =  db.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
+//        //append approval status to db
+//        values.put(APPROVAL_COL, 1);
+//    }
 
 
     @Override
@@ -147,10 +173,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return vaccinationModalArrayList;
     }
 
-
-
-
-    //USE THIS//
+    //method to get the record by id
     public VaccinationModal getRecordById(int recordId)
     {
 
@@ -170,7 +193,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return modal;
     }
 
-    //add stuff to convert bitmap to image here//
     //method to convert string to bitmap
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Bitmap convertBase64String(String base64String){
@@ -178,6 +200,12 @@ public class DBHandler extends SQLiteOpenHelper {
         Bitmap decodedByteArray = BitmapFactory.decodeByteArray(decodedBase64String, 0, base64String.length());
         return decodedByteArray;
     }
+    //method to convert bitmap to image again 
+//    public Image convertBitmap(Bitmap decodedByteArray){
+//
+//
+//        return;
+//    }
 
 
 }

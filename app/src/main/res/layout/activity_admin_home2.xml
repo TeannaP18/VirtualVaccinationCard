@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdminHome2Activity"
+    android:background="@drawable/blank_background">
+
+    <ImageView
+        android:id="@+id/Photo"
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/photo"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/img"/>
+
+    <TextView
+        android:id="@+id/tvAdminName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="@string/admin" />
+
+
+</LinearLayout>

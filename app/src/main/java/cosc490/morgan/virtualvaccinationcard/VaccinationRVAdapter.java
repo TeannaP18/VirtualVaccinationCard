@@ -1,6 +1,7 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,7 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,7 +58,17 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         holder.dose2NumTV.setText(modal.getDose2_num());
         holder.boosterDateTV.setText(modal.getBooster_date());
         holder.boosterNumTV.setText(modal.getBooster_num());
+        //holder.approvalCheckBox.setChecked(false);
         //holder.approvalSwitch.setChecked(false);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AdminHome2Activity.class);
+                intent.putExtra("approval", modal.getApproval_status());
+                context.startActivity(intent);
+            }
+        });
 
 //        //base64String conversion to Bitmap to display retrieve image
 //        if(modal.getCard_photo() == null){
@@ -82,7 +94,7 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
 
         private TextView userName, vaccineProvider,  dose1DateTV, dose1NumTV, dose2DateTV, dose2NumTV, boosterDateTV, boosterNumTV;
         private ImageView vaccineCardPhoto;
-        private SwitchCompat approvalSwitch;
+        private CheckBox approvalCheckBox;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -95,17 +107,11 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
             boosterDateTV = itemView.findViewById(R.id.tvBoosterDate);
             boosterNumTV = itemView.findViewById(R.id.tvBoosterNum);
             vaccineCardPhoto = itemView.findViewById(R.id.ivVaccinePhoto);
+            //approvalCheckBox = itemView.findViewById(R.id.cbApproval);
             //approvalSwitch = itemView.findViewById(R.id.sApprovalSwitch);
         }
-    }
 
-//    //convert base64 string to bitmap
-//    @RequiresApi(api = Build.VERSION_CODES.O)
-//    public Bitmap convertBase64String(String base64String){
-//        byte[] decodedBase64String = Base64.getDecoder().decode(base64String);
-//        Bitmap decodedByteArray = BitmapFactory.decodeByteArray(decodedBase64String, 0, base64String.length());
-//        return decodedByteArray;
-//    }
+    }
 
 
 }

@@ -8,8 +8,9 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tvUserName"
@@ -64,10 +65,10 @@
             android:id="@+id/tvDose2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_below="@id/tvDose1"
             android:padding="5dp"
             android:text="@string/dose_2"
-            android:layout_below="@id/tvDose1"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvDose2Date"
@@ -94,10 +95,10 @@
             android:id="@+id/tvBooster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_below="@id/tvDose2"
             android:padding="5dp"
             android:text="@string/booster"
-            android:layout_below="@id/tvDose2"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvBoosterDate"
@@ -131,6 +132,40 @@
             android:layout_marginStart="114dp"
             android:layout_marginTop="5dp" />
 
+        <TextView
+            android:id="@+id/tvApproval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivVaccinePhoto"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="11dp"
+            android:padding="5dp"
+            android:text="Approval Status: "
+            android:textColor="@color/teal_200"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="316dp"
+            android:layout_toRightOf="@+id/tvApproval"
+            android:hint="NOT Approved"
+            android:textSize="18sp" />
+        <!--
+        <CheckBox
+            android:id="@+id/cbApproval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/approved" />
+
+
         <Switch
             android:id="@+id/sApprovalSwitch"
             android:layout_width="150dp"
@@ -142,7 +177,8 @@
             android:allowUndo="true"
             android:text="@string/approved"
             tools:ignore="UseSwitchCompatOrMaterialXml"
-            tools:targetApi="m" />
+            tools:targetApi="m" /> -->
+
 
     </RelativeLayout>
 

@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+//This class:
+//performs all sql/database operations
 public class DBHandler extends SQLiteOpenHelper {
 
     //name of db
@@ -100,6 +102,7 @@ public class DBHandler extends SQLiteOpenHelper {
 //    getRecordByID
 //    values.put(APPROVAL_COL, "1")
 
+    //try geeks for geeks tutorial to update db
     public void appendApproval(){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -122,11 +125,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public ArrayList<VaccinationModal> readVaccinations(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursorVaccinations = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor cursorVaccinations = db.rawQuery("SELECT name, vaccine_provider, dose1_date, dose1_num, dose2_date, dose2_num, booster_date, booster_num, card_photo FROM " + TABLE_NAME, null);
+
         ArrayList<VaccinationModal> vaccinationModalArrayList = new ArrayList<>();
         if(cursorVaccinations.moveToFirst()){
             do{
-                vaccinationModalArrayList.add(new VaccinationModal(cursorVaccinations.getString(1),
+                vaccinationModalArrayList.add(new VaccinationModal(cursorVaccinations.getString(0),
+                        cursorVaccinations.getString(1),
                         cursorVaccinations.getString(2),
                         cursorVaccinations.getString(3),
                         cursorVaccinations.getString(4),
@@ -144,24 +149,24 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     //USE THIS//
-//    public VaccinationModal getRecordById(int recordId)
-//    {
-//
-//        SQLiteDatabase database = this.getWritableDatabase();
-//        Cursor cursor=null;
-//        VaccinationModal modal = null;
-//        cursor =  database.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
-//        if (cursor != null)
-//        {
-//            if (cursor.moveToFirst())
-//            {
-//                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(ID_COL));
-//                modal.setId(id);
-//            }
-//            cursor.close();
-//        }
-//        return modal;
-//    }
+    public VaccinationModal getRecordById(int recordId)
+    {
+
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor=null;
+        VaccinationModal modal = null;
+        cursor =  database.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
+        if (cursor != null)
+        {
+            if (cursor.moveToFirst())
+            {
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(ID_COL));
+                modal.setId(id);
+            }
+            cursor.close();
+        }
+        return modal;
+    }
 
 
 }

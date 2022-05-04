@@ -10,7 +10,9 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-
+//This class:
+//gets all vaccination records from db and displays them in a recycler view
+//updates the approval status column for each vaccination record if the switch is set to on/true
 public class AdminHomeActivity extends AppCompatActivity {
 
     private ArrayList<VaccinationModal> vaccinationModalArrayList;

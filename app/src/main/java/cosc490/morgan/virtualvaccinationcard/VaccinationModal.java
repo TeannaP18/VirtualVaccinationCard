@@ -2,13 +2,16 @@ package cosc490.morgan.virtualvaccinationcard;
 
 import android.graphics.Bitmap;
 
-//modal class for storing vaccination card data
+//This class:
+//is the modal class for storing vaccination card data
 public class VaccinationModal {
 
-    private String userName = LoginActivity.returnUserName();
+    //private String userName = LoginActivity.returnUserName();
 
     //ID
     private int id;
+    //username
+    private String userName;
     //vaccination provider
     private String vac_provider;
     //dose 1 date
@@ -99,8 +102,9 @@ public class VaccinationModal {
         this.id = id;
     }
 
-    public VaccinationModal(String vac_provider, String dose1_date, String dose1_num,
+    public VaccinationModal(String userName, String vac_provider, String dose1_date, String dose1_num,
                             String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo){
+        this.userName = userName;
         this.vac_provider = vac_provider;
         this.dose1_date = dose1_date;
         this.dose1_num = dose1_num;

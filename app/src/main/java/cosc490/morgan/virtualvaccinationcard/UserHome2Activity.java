@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//This class:
+//gets user inputted vaccination details and image from UserHomeActivity and/or the database and displays it on the screen 
 public class UserHome2Activity extends AppCompatActivity {
 
     String vaccine_provider, dose1_date, dose1_num, dose2_date, dose2_num, booster_date, booster_num;

@@ -22,6 +22,9 @@ import java.io.IOException;
 import java.util.Base64;
 
 
+//This class:
+//takes user input in text fields and image upload and writes these to the database
+//navigates to UserHome2Activity
 @SuppressWarnings("ALL")
 public class UserHomeActivity extends AppCompatActivity implements View.OnClickListener {
 

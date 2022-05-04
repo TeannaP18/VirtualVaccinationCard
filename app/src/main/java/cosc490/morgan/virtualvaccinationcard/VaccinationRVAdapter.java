@@ -19,7 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Base64;
 
-//adapter class for setting data to items of recycler view
+//This class:
+//is the adapter class for setting data to the items of recycler view
 public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdapter.ViewHolder> {
 
     private final ArrayList<VaccinationModal> vaccinationModalArrayList;
@@ -54,9 +55,16 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         holder.boosterNumTV.setText(modal.getBooster_num());
 
         //base64String conversion to Bitmap to display retrieve image
-        String imageString = modal.getCard_photo();
-        Bitmap cardPhoto = convertBase64String(imageString);
-        holder.vaccineCardPhoto.setImageBitmap(cardPhoto);
+        if(modal.getCard_photo() == null){
+
+        }else{
+            String imageString = modal.getCard_photo();
+            Bitmap cardPhoto = convertBase64String(imageString);
+            holder.vaccineCardPhoto.setImageBitmap(cardPhoto);
+        }
+//        String imageString = modal.getCard_photo();
+//        Bitmap cardPhoto = convertBase64String(imageString);
+//        holder.vaccineCardPhoto.setImageBitmap(cardPhoto);
     }
 
     @Override
@@ -91,7 +99,6 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
     public Bitmap convertBase64String(String base64String){
         byte[] decodedBase64String = Base64.getDecoder().decode(base64String);
         Bitmap decodedByteArray = BitmapFactory.decodeByteArray(decodedBase64String, 0, base64String.length());
-
         return decodedByteArray;
     }
 

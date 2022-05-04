@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
+//This class:
+//checks if user login is regular user or admin and opens the corresponding homepage activity if the username and password are correct
 public class LoginActivity extends AppCompatActivity {
 
     private static String usernameString, passwordString;

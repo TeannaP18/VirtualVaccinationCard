@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,22 +8,155 @@
     tools:context=".AdminHome2Activity"
     android:background="@drawable/blank_background">
 
-    <ImageView
-        android:id="@+id/Photo"
-        android:layout_width="match_parent"
-        android:layout_height="102dp"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/photo"
-        tools:ignore="ContentDescription"
-        android:src="@drawable/img"/>
-
     <TextView
-        android:id="@+id/tvAdminName"
+        android:id="@+id/tvAdminName_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="20sp"
         android:text="@string/admin" />
 
+    <TextView
+        android:id="@+id/tvUserName_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/user_name"
+        android:textSize="20sp"
+        tools:ignore="RelativeOverlap"
+        android:layout_below="@+id/tvAdminName_2"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tvVaccineProvider_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvUserName_2"
+        android:hint="@string/vaccine_provider"
+        android:textSize="18sp" />
+
+    <!--Add Titles for columns here -->
+
+    <!--Dose 1-->
+    <TextView
+        android:id="@+id/tvDose1_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvVaccineProvider_2"
+        android:padding="5dp"
+        android:text="@string/dose_1"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvDose1Date_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvVaccineProvider_2"
+        android:layout_toEndOf="@+id/tvDose1_2"
+        android:hint="@string/dose_1_date"
+        android:padding="5dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvDose1Num_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvVaccineProvider_2"
+        android:layout_toEndOf="@id/tvDose1Date_2"
+        android:hint="@string/dose_1_num"
+        android:padding="5dp"
+        android:textSize="16sp" />
+
+    <!--Dose 2-->
+    <TextView
+        android:id="@+id/tvDose2_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDose1_2"
+        android:padding="5dp"
+        android:text="@string/dose_2"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvDose2Date_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDose1Date_2"
+        android:layout_toEndOf="@id/tvDose2_2"
+        android:hint="@string/dose_2_date"
+        android:padding="5dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvDose2Num_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDose1Date_2"
+        android:layout_toEndOf="@id/tvDose2Date_2"
+        android:hint="@string/dose_2_num"
+        android:padding="5dp"
+        android:textSize="16sp" />
+
+    <!--Booster-->
+    <TextView
+        android:id="@+id/tvBooster_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDose2_2"
+        android:padding="5dp"
+        android:text="@string/booster"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvBoosterDate_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDose2Date_2"
+        android:layout_toEndOf="@id/tvBooster_2"
+        android:hint="@string/booster_date"
+        android:padding="5dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvBoosterNum_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDose2Date_2"
+        android:layout_toEndOf="@id/tvBoosterDate_2"
+        android:hint="@string/booster_num"
+        android:padding="5dp"
+        android:textSize="16sp" />
+
+
+    <!--should be users vaccination card-->
+
+    <ImageView
+        android:id="@+id/ivVaccinePhoto_2"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/tvBoosterNum_2"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnApproveRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivVaccinePhoto_2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="24dp"
+        android:text="APPROVE" />
+
+    <Button
+        android:id="@+id/btnGoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivVaccinePhoto_2"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="12dp"
+        android:text="GO BACK" />
+
+
+</RelativeLayout>

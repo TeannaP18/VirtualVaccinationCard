@@ -20,10 +20,10 @@
         android:id="@+id/tvUserName_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAdminName_2"
         android:hint="@string/user_name"
         android:textSize="20sp"
-        tools:ignore="RelativeOverlap"
-        android:layout_below="@+id/tvAdminName_2"/>
+        tools:ignore="RelativeOverlap" />
 
     <TextView
         android:id="@+id/tvVaccineProvider_2"

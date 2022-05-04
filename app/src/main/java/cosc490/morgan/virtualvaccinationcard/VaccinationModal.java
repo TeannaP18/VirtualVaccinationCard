@@ -26,6 +26,8 @@ public class VaccinationModal {
     private String booster_date;
     //booster #
     private String booster_num;
+    //approval status
+    private int approval_status;
 
     //bitmap of card photo
     private String card_photo;
@@ -95,6 +97,9 @@ public class VaccinationModal {
         this.card_photo = card_photo;
     }
 
+    public int getApproval_status(){return approval_status;}
+    public void setApproval_status(int approval_status){this.approval_status = approval_status;}
+
     public int getId(){
         return id;
     }
@@ -103,7 +108,7 @@ public class VaccinationModal {
     }
 
     public VaccinationModal(String userName, String vac_provider, String dose1_date, String dose1_num,
-                            String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo){
+                            String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo, int approval_status){
         this.userName = userName;
         this.vac_provider = vac_provider;
         this.dose1_date = dose1_date;
@@ -113,5 +118,6 @@ public class VaccinationModal {
         this.booster_date = booster_date;
         this.booster_num = booster_num;
         this.card_photo = card_photo;
+        this.approval_status = approval_status;
     }
 }

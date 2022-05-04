@@ -1,8 +1,10 @@
 package cosc490.morgan.virtualvaccinationcard;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -21,7 +24,7 @@ import java.util.Base64;
 
 //This class:
 //is the adapter class for setting data to the items of recycler view
-public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdapter.ViewHolder> {
+public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdapter.ViewHolder>{
 
     private final ArrayList<VaccinationModal> vaccinationModalArrayList;
     private final Context context;
@@ -53,15 +56,18 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         holder.dose2NumTV.setText(modal.getDose2_num());
         holder.boosterDateTV.setText(modal.getBooster_date());
         holder.boosterNumTV.setText(modal.getBooster_num());
+        //holder.approvalSwitch.setChecked(false);
 
-        //base64String conversion to Bitmap to display retrieve image
-        if(modal.getCard_photo() == null){
-
-        }else{
-            String imageString = modal.getCard_photo();
-            Bitmap cardPhoto = convertBase64String(imageString);
-            holder.vaccineCardPhoto.setImageBitmap(cardPhoto);
-        }
+//        //base64String conversion to Bitmap to display retrieve image
+//        if(modal.getCard_photo() == null){
+//            Resources res = context.getResources();
+//            Drawable drawable = ResourcesCompat.getDrawable(res, R.drawable.img, null);
+//            holder.vaccineCardPhoto.setImageDrawable(drawable);
+//        }else{
+//            String imageString = modal.getCard_photo();
+//            Bitmap cardPhoto = convertBase64String(imageString);
+//            holder.vaccineCardPhoto.setImageBitmap(cardPhoto);
+//        }
 //        String imageString = modal.getCard_photo();
 //        Bitmap cardPhoto = convertBase64String(imageString);
 //        holder.vaccineCardPhoto.setImageBitmap(cardPhoto);
@@ -76,8 +82,6 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
 
         private TextView userName, vaccineProvider,  dose1DateTV, dose1NumTV, dose2DateTV, dose2NumTV, boosterDateTV, boosterNumTV;
         private ImageView vaccineCardPhoto;
-
-        //switch of the individual item!
         private SwitchCompat approvalSwitch;
 
         public ViewHolder(View itemView) {
@@ -91,16 +95,17 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
             boosterDateTV = itemView.findViewById(R.id.tvBoosterDate);
             boosterNumTV = itemView.findViewById(R.id.tvBoosterNum);
             vaccineCardPhoto = itemView.findViewById(R.id.ivVaccinePhoto);
+            //approvalSwitch = itemView.findViewById(R.id.sApprovalSwitch);
         }
     }
 
-    //convert base64 string to bitmap
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public Bitmap convertBase64String(String base64String){
-        byte[] decodedBase64String = Base64.getDecoder().decode(base64String);
-        Bitmap decodedByteArray = BitmapFactory.decodeByteArray(decodedBase64String, 0, base64String.length());
-        return decodedByteArray;
-    }
+//    //convert base64 string to bitmap
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//    public Bitmap convertBase64String(String base64String){
+//        byte[] decodedBase64String = Base64.getDecoder().decode(base64String);
+//        Bitmap decodedByteArray = BitmapFactory.decodeByteArray(decodedBase64String, 0, base64String.length());
+//        return decodedByteArray;
+//    }
 
 
 }

@@ -6,8 +6,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 //This class:
 //performs all sql/database operations
@@ -125,7 +131,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public ArrayList<VaccinationModal> readVaccinations(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursorVaccinations = db.rawQuery("SELECT name, vaccine_provider, dose1_date, dose1_num, dose2_date, dose2_num, booster_date, booster_num, card_photo FROM " + TABLE_NAME, null);
+        Cursor cursorVaccinations = db.rawQuery("SELECT name, vaccine_provider, dose1_date, dose1_num, dose2_date, dose2_num, booster_date, booster_num, card_photo, approval FROM " + TABLE_NAME, null);
 
         ArrayList<VaccinationModal> vaccinationModalArrayList = new ArrayList<>();
         if(cursorVaccinations.moveToFirst()){
@@ -138,7 +144,8 @@ public class DBHandler extends SQLiteOpenHelper {
                         cursorVaccinations.getString(5),
                         cursorVaccinations.getString(6),
                         cursorVaccinations.getString(7),
-                        cursorVaccinations.getString(8)));
+                        cursorVaccinations.getString(8),
+                        cursorVaccinations.getInt(9)));
             }while (cursorVaccinations.moveToNext());
         }
         cursorVaccinations.close();
@@ -166,6 +173,15 @@ public class DBHandler extends SQLiteOpenHelper {
             cursor.close();
         }
         return modal;
+    }
+
+    //add stuff to convert bitmap to image here//
+    //method to convert string to bitmap
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public Bitmap convertBase64String(String base64String){
+        byte[] decodedBase64String = Base64.getDecoder().decode(base64String);
+        Bitmap decodedByteArray = BitmapFactory.decodeByteArray(decodedBase64String, 0, base64String.length());
+        return decodedByteArray;
     }
 
 

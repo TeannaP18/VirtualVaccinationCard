@@ -105,16 +105,23 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //method for updating record
-    //public void updateRecord(String original_status, String userName, String vac_provider, String dose1_date, String dose1_num,
-    //                               String dose2_date, String dose2_num, String booster_date, String booster_num, String imageString, int approval_status)
-    public void updateRecord(String original_status, int approval_status){
+    public void updateApprovalColumn(String TABLE_NAME, String ID_COL, String COL_NAME, int recordId, int newApproval){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(COL_NAME, newApproval);
+        db.update(TABLE_NAME, values, ID_COL+ "= ?", new String[]{String.valueOf(recordId)});
+    }
 
-        original_status = "0";
-
+//    public void updateRecord(int id, String original_name, int approval_status, String userName, String password, String vac_provider, String dose1_date, String dose1_num,
+//                                                           String dose2_date, String dose2_num, String booster_date, String booster_num, String imageString){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//
+//        original_name = "user name";
+//
+//        values.put(ID_COL, id);
 //        values.put(NAME_COL, userName);
-//        //values.put(PASSWORD_COL, password);
+//        values.put(PASSWORD_COL, password);
 //        values.put(VAC_PROVIDER_COL, vac_provider);
 //        values.put(DOSE1_DATE_COL, dose1_date);
 //        values.put(DOSE1_NUM_COL, dose1_num);
@@ -123,11 +130,11 @@ public class DBHandler extends SQLiteOpenHelper {
 //        values.put(BOOSTER_DATE_COL, booster_date);
 //        values.put(BOOSTER_NUM_COL, booster_num);
 //        values.put(CARD_PHOTO_COL, imageString);
-        values.put(APPROVAL_COL, approval_status);
-        db.update(TABLE_NAME, values, "name=?",new String[]{original_status});
-
-        db.close();
-    }
+//        values.put(APPROVAL_COL, approval_status);
+//
+//        db.update(TABLE_NAME, values, "name=?",new String[]{original_name});
+//        db.close();
+//    }
 
 //    public void appendApproval(){
 //        SQLiteDatabase db = this.getWritableDatabase();

@@ -6,12 +6,12 @@ import android.graphics.Bitmap;
 //is the modal class for storing vaccination card data
 public class VaccinationModal {
 
-    //private String userName = LoginActivity.returnUserName();
-
     //ID
     private int id;
     //username
     private String userName;
+    //password
+    private String password;
     //vaccination provider
     private String vac_provider;
     //dose 1 date
@@ -42,6 +42,9 @@ public class VaccinationModal {
     public void setUserName(String userName){
         this.userName = userName;
     }
+
+    public String getPassword(){return password;}
+    public void setPassword(String password){this.password = password;}
 
     public String getVac_provider(){
         return vac_provider;
@@ -109,7 +112,9 @@ public class VaccinationModal {
 
     public VaccinationModal(String userName, String vac_provider, String dose1_date, String dose1_num,
                             String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo, int approval_status){
+        //this.id = id;
         this.userName = userName;
+        //this.password = password;
         this.vac_provider = vac_provider;
         this.dose1_date = dose1_date;
         this.dose1_num = dose1_num;

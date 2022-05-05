@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class UserHome2Activity extends AppCompatActivity {
 
     String vaccine_provider, dose1_date, dose1_num, dose2_date, dose2_num, booster_date, booster_num;
+    int approval_status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +38,14 @@ public class UserHome2Activity extends AppCompatActivity {
         booster.setText(UserHomeActivity.returnBooster());
         boosterNum.setText(UserHomeActivity.returnBoosterNum());
 
-        vaccine_provider = getIntent().getExtras().getString("VaccineProvider");
-        dose1_date = getIntent().getExtras().getString("Dose1Date");
-        dose1_num = getIntent().getExtras().getString("Dose1Num");
-        dose2_date = getIntent().getExtras().getString("Dose2Date");
-        dose2_num = getIntent().getExtras().getString("Dose2Num");
-        booster_date = getIntent().getExtras().getString("BoosterDate");
-        booster_num = getIntent().getExtras().getString("BoosterNum");
+        vaccine_provider = getIntent().getExtras().getString("vac_provider");
+        dose1_date = getIntent().getExtras().getString("dose1_date");
+        dose1_num = getIntent().getExtras().getString("dose1_num");
+        dose2_date = getIntent().getExtras().getString("dose2_date");
+        dose2_num = getIntent().getExtras().getString("dose2_num");
+        booster_date = getIntent().getExtras().getString("booster_date");
+        booster_num = getIntent().getExtras().getString("booster_num");
+        approval_status = getIntent().getExtras().getInt("approval");
 
         vaccineProvider.setText(vaccine_provider);
         dose1.setText(dose1_date);
@@ -53,12 +55,11 @@ public class UserHome2Activity extends AppCompatActivity {
         booster.setText(booster_date);
         boosterNum.setText(booster_num);
 
-        //if approved from admin side, approval status = "Approved"
-//        if (approvalStatus.getText() == "1"){
-//            approvalStatus.setText("Approved");
-//        }else{
-//            approvalStatus.setText("Not Approved");
-//        }
-        approvalStatus.setText("Not Approved");
+        if (approval_status == 0){
+            approvalStatus.setText("NOT Approved");
+        }
+        if (approval_status == 1){
+            approvalStatus.setText("Approved!");
+        }
     }
 }

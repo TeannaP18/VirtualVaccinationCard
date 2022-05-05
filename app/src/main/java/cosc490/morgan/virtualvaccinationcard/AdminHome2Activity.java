@@ -3,6 +3,7 @@ package cosc490.morgan.virtualvaccinationcard;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ public class AdminHome2Activity extends AppCompatActivity {
     private Button goBack, approved;
     private DBHandler dbHandler;
     String userName2, vaccineProvider2, dose1date2, dose1Num2, dose2Date2, dose2Num2, boosterDate2, boosterNum2, imageString2;
+//    int id, approval_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +35,16 @@ public class AdminHome2Activity extends AppCompatActivity {
         boosterDate_2 = findViewById(R.id.tvBoosterDate_2);
         boosterNum_2 = findViewById(R.id.tvBoosterNum_2);
         cardImage_2 = findViewById(R.id.ivVaccinePhoto_2);
-
-        //initialize buttons
+        //buttons
         goBack = findViewById(R.id.btnGoBack);
         approved = findViewById(R.id.btnApproveRecord);
 
         dbHandler = new DBHandler(AdminHome2Activity.this);
 
         //getting which data is passed into adapter class
+//        id = getIntent().getIntExtra("id", 0);
         userName2 = getIntent().getStringExtra("name");
-        vaccineProvider2 = getIntent().getStringExtra("vaccine_provider");
+        vaccineProvider2 = getIntent().getStringExtra("vac_provider");
         dose1date2 = getIntent().getStringExtra("dose1_date");
         dose1Num2 = getIntent().getStringExtra("dose1_num");
         dose2Date2 = getIntent().getStringExtra("dose2_date");
@@ -60,7 +62,8 @@ public class AdminHome2Activity extends AppCompatActivity {
         dose2Num_2.setText(dose2Num2);
         boosterDate_2.setText(boosterDate2);
         boosterNum_2.setText(boosterNum2);
-        //cardImage_2.setImageBitmap;
+        //convert string/Bitmap to image again
+        //cardImage_2.setImageBitmap(imageString2);
 
         //go back button
         goBack.setOnClickListener(new View.OnClickListener() {
@@ -74,9 +77,8 @@ public class AdminHome2Activity extends AppCompatActivity {
         approved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //dbHandler.updateRecord("0", userName2, vaccineProvider2, dose1date2, dose1Num2, dose2Date2, dose2Num2, boosterDate2, boosterNum2, imageString2, 1);
-                dbHandler.updateRecord("0", 1);
-                Toast.makeText(AdminHome2Activity.this, "Vaccination Record APPROVED!", Toast.LENGTH_SHORT).show();
+//                dbHandler.updateApprovalColumn("user_data", DBHandler.APPROVAL_COL, id, 1);
+//                Toast.makeText(AdminHome2Activity.this, "Vaccination Record APPROVED!", Toast.LENGTH_SHORT).show();
                 goBackToAdminHome();
             }
         });

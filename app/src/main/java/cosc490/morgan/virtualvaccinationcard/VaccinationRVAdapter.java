@@ -65,17 +65,14 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, AdminHome2Activity.class);
-
-                //intent.putExtra("id", modal.getID());
-//                intent.putExtra("name", modal.getUserName());
-//                intent.putExtra("vaccine_provider", modal.getVac_provider());
-//                intent.putExtra("dose1_date", modal.getDose1_date());
-//                intent.putExtra("dose1_num", modal.getDose1_num());
-//                intent.putExtra("dose2_date", modal.getDose2_date());
-//                intent.putExtra("dose2_num", modal.getDose2_num());
-//                intent.putExtra("booster_date", modal.getBooster_date());
-//                intent.putExtra("booster_num", modal.getBooster_num());
-//                intent.putExtra("card_photo", modal.getCard_photo());
+                intent.putExtra("name", modal.getUserName());
+                intent.putExtra("vac_provider", modal.getVac_provider());
+                intent.putExtra("dose1_date", modal.getDose1_date());
+                intent.putExtra("dose1_num", modal.getDose1_num());
+                intent.putExtra("dose2_date", modal.getDose2_date());
+                intent.putExtra("dose2_num", modal.getDose2_num());
+                intent.putExtra("booster_date", modal.getBooster_date());
+                intent.putExtra("booster_num", modal.getBooster_num());
                 intent.putExtra("approval", modal.getApproval_status());
                 context.startActivity(intent);
             }

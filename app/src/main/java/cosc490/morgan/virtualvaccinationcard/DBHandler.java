@@ -105,49 +105,19 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //method for updating record
-    public void updateApprovalColumn(String TABLE_NAME, String ID_COL, String COL_NAME, int recordId, int newApproval){
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void updateApproval(int recordId){
+        SQLiteDatabase db  = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COL_NAME, newApproval);
-        db.update(TABLE_NAME, values, ID_COL+ "= ?", new String[]{String.valueOf(recordId)});
+        values.put("approval", 1);
+        db.update(TABLE_NAME, values, "id = ?", new String[Integer.parseInt(String.valueOf(recordId))]);
     }
 
-//    public void updateRecord(int id, String original_name, int approval_status, String userName, String password, String vac_provider, String dose1_date, String dose1_num,
-//                                                           String dose2_date, String dose2_num, String booster_date, String booster_num, String imageString){
+//    public void updateApprovalColumn(String TABLE_NAME, String ID_COL, String APPROVAL_COL, int recordId, int newApproval){
 //        SQLiteDatabase db = this.getWritableDatabase();
 //        ContentValues values = new ContentValues();
-//
-//        original_name = "user name";
-//
-//        values.put(ID_COL, id);
-//        values.put(NAME_COL, userName);
-//        values.put(PASSWORD_COL, password);
-//        values.put(VAC_PROVIDER_COL, vac_provider);
-//        values.put(DOSE1_DATE_COL, dose1_date);
-//        values.put(DOSE1_NUM_COL, dose1_num);
-//        values.put(DOSE2_DATE_COL, dose2_date);
-//        values.put(DOSE2_NUM_COL, dose2_num);
-//        values.put(BOOSTER_DATE_COL, booster_date);
-//        values.put(BOOSTER_NUM_COL, booster_num);
-//        values.put(CARD_PHOTO_COL, imageString);
-//        values.put(APPROVAL_COL, approval_status);
-//
-//        db.update(TABLE_NAME, values, "name=?",new String[]{original_name});
-//        db.close();
+//        values.put(APPROVAL_COL, newApproval);
+//        db.update(TABLE_NAME, values, ID_COL+ "= ?", new String[]{String.valueOf(recordId)});
 //    }
-
-//    public void appendApproval(){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        Cursor cursor;
-//        VaccinationModal modal = null;
-//        int recordId = modal.getID();
-//        //select query
-//        cursor =  db.rawQuery("select * from " + TABLE_NAME + " where " + ID_COL + "=" + recordId, null);
-//        //append approval status to db
-//        values.put(APPROVAL_COL, 1);
-//    }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
@@ -207,11 +177,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return decodedByteArray;
     }
     //method to convert bitmap to image again
-//    public Image convertBitmap(Bitmap decodedByteArray){
-//
-//
-//        return;
-//    }
 
 
 }

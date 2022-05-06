@@ -66,6 +66,7 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
             public void onClick(View view) {
                 Intent intent = new Intent(context, AdminHome2Activity.class);
                 intent.putExtra("name", modal.getUserName());
+                intent.putExtra("id", modal.getID());
                 intent.putExtra("vac_provider", modal.getVac_provider());
                 intent.putExtra("dose1_date", modal.getDose1_date());
                 intent.putExtra("dose1_num", modal.getDose1_num());

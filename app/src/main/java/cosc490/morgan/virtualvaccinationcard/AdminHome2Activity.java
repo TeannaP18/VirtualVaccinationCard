@@ -18,7 +18,7 @@ public class AdminHome2Activity extends AppCompatActivity {
     private Button goBack, approved;
     private DBHandler dbHandler;
     String userName2, vaccineProvider2, dose1date2, dose1Num2, dose2Date2, dose2Num2, boosterDate2, boosterNum2, imageString2;
-//    int id, approval_code;
+    int id, approval_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class AdminHome2Activity extends AppCompatActivity {
 
         //getting which data is passed into adapter class
 //        id = getIntent().getIntExtra("id", 0);
+        id = getIntent().getIntExtra("id", 0);
         userName2 = getIntent().getStringExtra("name");
         vaccineProvider2 = getIntent().getStringExtra("vac_provider");
         dose1date2 = getIntent().getStringExtra("dose1_date");
@@ -77,8 +78,9 @@ public class AdminHome2Activity extends AppCompatActivity {
         approved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                dbHandler.updateApprovalColumn("user_data", DBHandler.APPROVAL_COL, id, 1);
-//                Toast.makeText(AdminHome2Activity.this, "Vaccination Record APPROVED!", Toast.LENGTH_SHORT).show();
+//                dbHandler.updateApprovalColumn("user_data", "id", "approval", id, 1);
+                dbHandler.updateApproval(id);
+                Toast.makeText(AdminHome2Activity.this, "Vaccination Record APPROVED!", Toast.LENGTH_SHORT).show();
                 goBackToAdminHome();
             }
         });

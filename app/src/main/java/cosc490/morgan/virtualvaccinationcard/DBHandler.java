@@ -112,20 +112,6 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-//    public void updateApproval(int recordId){
-//        SQLiteDatabase db  = getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put("approval", 1);
-//        db.update(TABLE_NAME, values, "id = ?", new String[Integer.parseInt(String.valueOf(recordId))]);
-//    }
-
-//    public void updateApprovalColumn(String TABLE_NAME, String ID_COL, String APPROVAL_COL, int recordId, int newApproval){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(APPROVAL_COL, newApproval);
-//        db.update(TABLE_NAME, values, ID_COL+ "= ?", new String[]{String.valueOf(recordId)});
-//    }
-
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);

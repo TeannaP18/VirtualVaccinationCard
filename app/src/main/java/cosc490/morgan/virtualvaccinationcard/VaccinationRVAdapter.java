@@ -44,8 +44,6 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         return new ViewHolder(view);
     }
 
-    //try the below holders with the set card functions from vaccination modal
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull VaccinationRVAdapter.ViewHolder holder, int position) {
@@ -58,8 +56,6 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
         holder.dose2NumTV.setText(modal.getDose2_num());
         holder.boosterDateTV.setText(modal.getBooster_date());
         holder.boosterNumTV.setText(modal.getBooster_num());
-        //holder.approvalCheckBox.setChecked(false);
-        //holder.approvalSwitch.setChecked(false);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,8 +112,6 @@ public class VaccinationRVAdapter extends RecyclerView.Adapter<VaccinationRVAdap
             boosterDateTV = itemView.findViewById(R.id.tvBoosterDate);
             boosterNumTV = itemView.findViewById(R.id.tvBoosterNum);
             vaccineCardPhoto = itemView.findViewById(R.id.ivVaccinePhoto);
-            //approvalCheckBox = itemView.findViewById(R.id.cbApproval);
-            //approvalSwitch = itemView.findViewById(R.id.sApprovalSwitch);
         }
 
     }

@@ -103,13 +103,6 @@ public class VaccinationModal {
     public int getApproval_status(){return approval_status;}
     public void setApproval_status(int approval_status){this.approval_status = approval_status;}
 
-    public int getId(){
-        return id;
-    }
-    public void setId(){
-        this.id = id;
-    }
-
     public VaccinationModal(String userName, String vac_provider, String dose1_date, String dose1_num,
                             String dose2_date, String dose2_num, String booster_date, String booster_num, String card_photo, int approval_status){
         //this.id = id;

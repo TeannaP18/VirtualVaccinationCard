@@ -3,8 +3,6 @@ package cosc490.morgan.virtualvaccinationcard;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +41,6 @@ public class AdminHome2Activity extends AppCompatActivity {
         dbHandler = new DBHandler(AdminHome2Activity.this);
 
         //getting which data is passed into adapter class
-//        id = getIntent().getIntExtra("id", 0);
         id = getIntent().getExtras().getInt("id");
         userName2 = getIntent().getStringExtra("name");
         vaccineProvider2 = getIntent().getStringExtra("vac_provider");
@@ -79,8 +76,6 @@ public class AdminHome2Activity extends AppCompatActivity {
         approved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                dbHandler.updateApprovalColumn("user_data", "id", "approval", id, 1);
-//                int id = getIntent().getIntExtra("id", 1);
                 dbHandler.updateApprovalStatus(id);
                 Toast.makeText(AdminHome2Activity.this, "Vaccination Record APPROVED!", Toast.LENGTH_SHORT).show();
                 goBackToAdminHome();

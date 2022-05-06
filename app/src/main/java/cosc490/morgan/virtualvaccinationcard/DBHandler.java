@@ -105,12 +105,19 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //method for updating record
-    public void updateApproval(int recordId){
-        SQLiteDatabase db  = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("approval", 1);
-        db.update(TABLE_NAME, values, "id = ?", new String[Integer.parseInt(String.valueOf(recordId))]);
+    public void updateApprovalStatus(int recordId){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String id = String.valueOf(recordId);
+        String query = "UPDATE " + TABLE_NAME + " SET " + APPROVAL_COL + " = 1 WHERE " + ID_COL + " = " + id;
+        db.execSQL(query);
     }
+
+//    public void updateApproval(int recordId){
+//        SQLiteDatabase db  = getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put("approval", 1);
+//        db.update(TABLE_NAME, values, "id = ?", new String[Integer.parseInt(String.valueOf(recordId))]);
+//    }
 
 //    public void updateApprovalColumn(String TABLE_NAME, String ID_COL, String APPROVAL_COL, int recordId, int newApproval){
 //        SQLiteDatabase db = this.getWritableDatabase();
